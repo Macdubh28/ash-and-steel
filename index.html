@@ -3,472 +3,608 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurelius Secundus — Dashboard</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --noir:#0D0D0D;--noir2:#1A1A1A;--gris:#242424;--gris2:#2E2E2E;
-  --bronze:#C9933A;--bronze2:#A67C2E;--bronze3:#7A5A1E;
-  --blanc:#F5F0E8;--blanc2:#C8C0B0;
-}
-html,body{min-height:100vh;background:var(--noir);color:var(--blanc);font-family:'Crimson Text',Georgia,serif;}
-body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(201,147,58,0.015) 2px,rgba(201,147,58,0.015) 4px);pointer-events:none;z-index:0;}
-.header{background:linear-gradient(180deg,#0D0D0D,#161410);border-bottom:1px solid var(--bronze3);padding:20px 28px 16px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;position:relative;z-index:1;flex-wrap:wrap;}
-.logo-title{font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--bronze);letter-spacing:.12em;line-height:1;}
-.logo-sub{font-family:'Cinzel',serif;font-size:9px;color:var(--bronze2);letter-spacing:.2em;text-transform:uppercase;margin-top:3px;}
-.tabs{display:flex;gap:4px;align-items:flex-end;flex-wrap:wrap;}
-.tab{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.12em;color:var(--blanc2);background:none;border:1px solid transparent;padding:7px 14px;cursor:pointer;transition:all .2s;text-transform:uppercase;}
-.tab:hover{color:var(--bronze);border-color:var(--bronze3);}
-.tab.active{color:var(--bronze);border-color:var(--bronze);background:rgba(201,147,58,.08);}
-.main{padding:20px 24px;position:relative;z-index:1;}
-.section-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.18em;color:var(--bronze2);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
-.section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--bronze3),transparent);}
-.platform-card{background:var(--gris);border:1px solid var(--gris2);border-radius:2px;padding:14px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;}
-.platform-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--bronze3);transition:background .25s;}
-.platform-card:hover{border-color:var(--bronze2);}
-.platform-card:hover::before,.platform-card.active::before{background:var(--bronze);}
-.platform-card.active{border-color:var(--bronze);background:rgba(201,147,58,.08);}
-.platform-name{font-family:'Cinzel',serif;font-size:12px;font-weight:600;color:var(--bronze);letter-spacing:.06em;}
-.platform-url{font-size:10px;color:var(--bronze2);font-style:italic;margin:5px 0 9px;word-break:break-all;}
-.platform-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
-.platform-items{list-style:none;display:flex;flex-direction:column;gap:3px;}
-.platform-items li{font-size:11px;color:var(--blanc2);display:flex;align-items:flex-start;gap:6px;line-height:1.4;}
-.platform-items li::before{content:'·';color:var(--bronze2);flex-shrink:0;}
-.badge{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.1em;padding:2px 7px;text-transform:uppercase;border-radius:1px;white-space:nowrap;}
-.badge-actif{color:#4CAF82;border:1px solid rgba(42,122,74,.4);}
-.badge-cours{color:var(--bronze);border:1px solid var(--bronze3);}
-.badge-draft{color:var(--blanc2);border:1px solid var(--gris2);}
-.badge-prio{color:#E85D24;border:1px solid rgba(232,93,36,.4);}
-.detail-panel{margin-top:16px;background:var(--gris);border:1px solid var(--bronze3);border-radius:2px;padding:18px;display:none;animation:fadeIn .3s ease;}
-.detail-panel.visible{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.detail-title{font-family:'Cinzel',serif;font-size:13px;font-weight:600;color:var(--bronze);margin-bottom:12px;letter-spacing:.06em;}
-.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.detail-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.15em;color:var(--bronze2);text-transform:uppercase;margin-bottom:5px;}
-.detail-value{font-size:12px;color:var(--blanc);line-height:1.6;}
-.detail-tag{display:inline-block;font-size:10px;color:var(--bronze2);border:1px solid var(--bronze3);padding:2px 7px;margin:2px 2px 2px 0;font-family:'Cinzel',serif;letter-spacing:.05em;}
-.todo-item{display:flex;gap:8px;font-size:11px;color:var(--blanc2);padding:5px 0;border-bottom:1px solid rgba(201,147,58,.1);align-items:flex-start;}
-.todo-dot{width:6px;height:6px;border-radius:50%;background:var(--bronze3);flex-shrink:0;margin-top:3px;}
-.todo-dot.high{background:var(--bronze);}
-.todo-dot.urgent{background:#E85D24;}
-.identity-block{background:linear-gradient(135deg,rgba(201,147,58,.12),rgba(201,147,58,.04));border:1px solid var(--bronze);border-radius:2px;padding:16px 20px;text-align:center;cursor:pointer;transition:all .3s;}
-.identity-block:hover{background:rgba(201,147,58,.18);}
-.identity-block.active{background:rgba(201,147,58,.18);}
-.identity-title{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--bronze);letter-spacing:.08em;}
-.identity-sub{font-size:12px;color:var(--blanc2);margin-top:4px;font-style:italic;}
-.identity-pills{display:flex;justify-content:center;gap:8px;margin-top:10px;flex-wrap:wrap;}
-.pill{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.1em;padding:3px 10px;border:1px solid var(--bronze2);color:var(--bronze2);text-transform:uppercase;}
-.connector-v{display:flex;justify-content:center;padding:7px 0;}
-.connector-line{width:1px;height:28px;background:linear-gradient(180deg,var(--bronze),var(--bronze3));position:relative;}
-.connector-line::after{content:'';position:absolute;bottom:-5px;left:-4px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:6px solid var(--bronze3);}
-.piliers-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px;}
-.pilier-card{background:rgba(201,147,58,.06);border:1px solid var(--bronze3);border-radius:2px;padding:10px;text-align:center;}
-.pilier-name{font-family:'Cinzel',serif;font-size:11px;font-weight:600;color:var(--bronze);letter-spacing:.1em;}
-.pilier-desc{font-size:10px;color:var(--blanc2);font-style:italic;margin-top:4px;line-height:1.4;}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
-@media(max-width:640px){.grid-2,.grid-3,.detail-grid,.piliers-grid{grid-template-columns:1fr;} .tabs{gap:2px;} .tab{font-size:9px;padding:5px 10px;}}
-.db-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
-.db-stat{background:var(--gris);border:1px solid var(--gris2);border-top:2px solid var(--bronze3);padding:12px 14px;text-align:center;transition:all .2s;}
-.db-stat:hover{border-top-color:var(--bronze);}
-.db-stat-value{font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:var(--bronze);line-height:1;}
-.db-stat-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.15em;color:var(--blanc2);text-transform:uppercase;margin-top:5px;}
-@media(max-width:640px){.db-stats{grid-template-columns:repeat(2,1fr);}}
-.db-table-wrap{border:1px solid var(--gris2);border-radius:2px;overflow:hidden;}
-.db-search-bar{padding:10px 14px;background:var(--gris2);border-bottom:1px solid var(--gris2);display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.db-search-bar input{background:var(--gris);border:1px solid var(--bronze3);color:var(--blanc);padding:6px 10px;font-family:'Crimson Text',serif;font-size:13px;outline:none;flex:1;min-width:150px;}
-.db-search-bar input:focus{border-color:var(--bronze);}
-.filter-btn{background:none;border:1px solid var(--gris2);color:var(--blanc2);padding:5px 10px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;}
-.filter-btn:hover,.filter-btn.active{border-color:var(--bronze);color:var(--bronze);background:rgba(201,147,58,.08);}
-.db-scroll{overflow-x:auto;}
-table.db-table{width:100%;border-collapse:collapse;font-size:12px;min-width:560px;}
-table.db-table thead th{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.12em;color:var(--bronze2);text-transform:uppercase;padding:9px 14px;background:var(--noir2);border-bottom:1px solid var(--bronze3);text-align:left;white-space:nowrap;}
-table.db-table tbody tr{border-bottom:1px solid rgba(201,147,58,.08);transition:background .15s;cursor:pointer;}
-table.db-table tbody tr:hover{background:rgba(201,147,58,.05);}
-table.db-table tbody td{padding:10px 14px;color:var(--blanc2);vertical-align:middle;line-height:1.4;}
-table.db-table tbody td:first-child{color:var(--blanc);font-family:'Cinzel',serif;font-size:11px;letter-spacing:.04em;}
-.prog-bar-wrap{background:var(--gris2);height:3px;border-radius:2px;width:70px;display:inline-block;vertical-align:middle;margin-right:5px;}
-.prog-bar{height:100%;background:var(--bronze);border-radius:2px;}
-.roadmap-phase{display:grid;grid-template-columns:110px 1fr;gap:0;position:relative;}
-.roadmap-phase::before{content:'';position:absolute;left:109px;top:28px;bottom:0;width:1px;background:linear-gradient(180deg,var(--bronze2),var(--bronze3),transparent);}
-.roadmap-phase:last-child::before{display:none;}
-.roadmap-phase-label{padding:24px 16px 24px 0;text-align:right;}
-.roadmap-phase-name{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.12em;color:var(--bronze);text-transform:uppercase;font-weight:600;}
-.roadmap-phase-duration{font-size:10px;color:var(--blanc2);font-style:italic;margin-top:3px;}
-.roadmap-phase-content{padding:18px 0 18px 28px;border-left:1px solid var(--bronze3);display:flex;flex-direction:column;gap:8px;}
-.roadmap-item{background:var(--gris);border:1px solid var(--gris2);border-left:2px solid var(--bronze3);padding:9px 12px;transition:all .2s;cursor:default;position:relative;}
-.roadmap-item::before{content:'';position:absolute;left:-7px;top:50%;transform:translateY(-50%);width:8px;height:8px;border-radius:50%;background:var(--bronze3);border:2px solid var(--noir);}
-.roadmap-item:hover{border-left-color:var(--bronze);background:rgba(201,147,58,.06);}
-.roadmap-item:hover::before{background:var(--bronze);}
-.roadmap-item-name{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.04em;color:var(--blanc);margin-bottom:3px;}
-.roadmap-item-desc{font-size:11px;color:var(--blanc2);font-style:italic;line-height:1.4;}
-.monet-card{background:var(--gris);border:1px solid var(--gris2);border-radius:2px;overflow:hidden;transition:all .25s;margin-bottom:14px;}
-.monet-card:hover{border-color:var(--bronze2);}
-.monet-card-header{padding:12px 18px;background:var(--noir2);border-bottom:1px solid var(--gris2);display:flex;justify-content:space-between;align-items:center;}
-.monet-card-title{font-family:'Cinzel',serif;font-size:12px;font-weight:600;color:var(--bronze);letter-spacing:.06em;}
-.monet-card-rank{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--bronze3);}
-.monet-card-body{padding:14px 18px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.monet-k{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.15em;color:var(--bronze2);text-transform:uppercase;margin-bottom:3px;}
-.monet-v{font-size:12px;color:var(--blanc);line-height:1.5;}
-.monet-v.price{font-family:'Cinzel',serif;font-size:17px;font-weight:700;color:var(--bronze);}
-@media(max-width:640px){.monet-card-body{grid-template-columns:1fr;}}
-.as-quote{text-align:center;padding:28px 32px 18px;position:relative;z-index:1;}
-.as-quote::before{content:'';display:block;width:50px;height:1px;background:var(--bronze3);margin:0 auto 18px;}
-.quote-text{font-family:'Crimson Text',serif;font-size:14px;font-style:italic;color:var(--bronze2);line-height:1.8;}
-.quote-author{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.2em;color:var(--bronze3);text-transform:uppercase;margin-top:7px;}
-.footer{border-top:1px solid var(--gris2);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;flex-wrap:wrap;gap:8px;}
-.footer-text{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.15em;color:var(--bronze3);text-transform:uppercase;}
-.tab-content{display:none;}
-.tab-content.active{display:block;}
-</style>
+<meta name="description" content="Ash & Steel — Playlists curatorées : Errol Holden, Roc Marciano, Ka, Styles P">
+<title>ASH & STEEL</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
 </head>
 <body>
 
-<div class="header">
-  <div>
-    <div class="logo-title">AURELIUS SECUNDUS</div>
-    <div class="logo-sub">Architecture · Document de Commandement · 2026</div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">ASH<span>&</span>STEEL</div>
+  <ul class="nav-links">
+    <li><a href="#playlists" class="active">Playlists</a></li>
+    <li><a href="#artistes">Artistes</a></li>
+    <li><a href="#discographies">Discographies</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">New York Underground — Curation</div>
+  <h1>ASH<em>&</em><br>STEEL</h1>
+  <div class="hero-sub">Errol Holden · Roc Marciano · Ka · Styles P</div>
+  <p class="hero-desc">Quatre voix. Un seul territoire : le minimalisme stoïque new-yorkais. Réalisme, discipline, élégance sombre. 15 playlists curatorées.</p>
+</header>
+
+<!-- MAIN PLAYLISTS SECTION -->
+<main class="section" id="playlists">
+  <div class="section-header">
+    <span class="section-icon">◆</span>
+    <h2 class="section-title">Playlists</h2>
+    <span class="section-count">15 playlists · 4 artistes</span>
   </div>
-  <div class="tabs">
-    <button class="tab active" onclick="showTab('arch',this)">Ecosysteme</button>
-    <button class="tab" onclick="showTab('db',this)">Base de donnees</button>
-    <button class="tab" onclick="showTab('roadmap',this)">Roadmap</button>
-    <button class="tab" onclick="showTab('monetisation',this)">Monetisation</button>
+
+  <!-- CATEGORY TABS -->
+  <div class="cat-tabs" id="catTabs">
+    <button class="cat-tab active" data-cat="all">Toutes</button>
+    <button class="cat-tab" data-cat="mood">Ambiances</button>
+    <button class="cat-tab" data-cat="narrative">Histoires</button>
+    <button class="cat-tab" data-cat="technique">Technique</button>
+    <button class="cat-tab" data-cat="algo">Mon Algorithme</button>
+    <button class="cat-tab" data-cat="carre">Le Carré Magique</button>
+  </div>
+
+  <!-- PLAYLIST GRID -->
+  <div class="playlist-grid" id="playlistGrid"></div>
+</main>
+
+<div class="divider"></div>
+
+<!-- ARTISTS SECTION -->
+<section class="section" id="artistes">
+  <div class="section-header">
+    <span class="section-icon">◈</span>
+    <h2 class="section-title">Les 4 Artistes</h2>
+  </div>
+  <div class="artists-grid" id="artistsGrid"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DISCOGRAPHIES SECTION -->
+<section class="section" id="discographies">
+  <div class="section-header">
+    <span class="section-icon">≡</span>
+    <h2 class="section-title">Discographies</h2>
+    <span class="section-count">Catalogues complets</span>
+  </div>
+  <div id="discoContainer"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">ASH<span>&</span>STEEL</div>
+  <div class="footer-note">Streaming via YouTube · macdubh28.github.io/ash-and-steel</div>
+</footer>
+
+<!-- DETAIL VIEW (overlay) -->
+<div class="detail-view" id="detailView">
+  <div id="detailContent"></div>
+</div>
+
+<!-- YOUTUBE MINI PLAYER -->
+<div id="yt-player-wrap">
+  <div class="player-progress"><div class="player-progress-bar" id="progressBar"></div></div>
+  <div id="yt-player-frame"></div>
+  <div class="player-thumb" id="playerThumb">◆</div>
+  <div class="player-info">
+    <div class="player-track" id="playerTrack">–</div>
+    <div class="player-artist" id="playerArtist">Sélectionner une playlist</div>
+  </div>
+  <div class="player-playlist" id="playerPlaylist">–</div>
+  <div class="player-controls">
+    <button class="player-btn" id="btnPrev" title="Précédent">&#9664;&#9664;</button>
+    <button class="player-btn main" id="btnPlay" title="Lecture / Pause">&#9654;</button>
+    <button class="player-btn" id="btnNext" title="Suivant">&#9654;&#9654;</button>
   </div>
 </div>
 
-<div class="main">
-
-<!-- TAB ECOSYSTEME -->
-<div id="tab-arch" class="tab-content active">
-  <div class="section-title">Cartographie de l ecosysteme</div>
-
-  <div class="identity-block" id="id-bloc" onclick="toggleDetail('identity',this)">
-    <div class="identity-title">MACDUBH · AURELIUS SECUNDUS</div>
-    <div class="identity-sub">@AigleRoyal28 · Philosophe stoicien · Createur de contenu</div>
-    <div class="identity-pills">
-      <span class="pill">L Aigle</span>
-      <span class="pill">Macdubh</span>
-      <span class="pill">Stoicisme</span>
-    </div>
-  </div>
-
-  <div id="detail-identity" class="detail-panel">
-    <div class="detail-title">Morale de Ghost — Les 3 Piliers</div>
-    <div class="piliers-grid">
-      <div class="pilier-card"><div class="pilier-name">L Aigle</div><div class="pilier-desc">Perspective elevee — voir au-dela du chaos immediat</div></div>
-      <div class="pilier-card"><div class="pilier-name">Macdubh</div><div class="pilier-desc">Fils du noir — force forgee dans l adversite</div></div>
-      <div class="pilier-card"><div class="pilier-name">Stoicisme</div><div class="pilier-desc">Discipline interieure — dichotomie du controle</div></div>
-    </div>
-    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-      <span class="detail-label" style="margin:0;">Identite visuelle :</span>
-      <span class="detail-tag">#0D0D0D Noir</span><span class="detail-tag">#C9933A Bronze</span><span class="detail-tag">Cinzel + Crimson Text</span>
-    </div>
-  </div>
-
-  <div class="connector-v"><div class="connector-line"></div></div>
-
-  <div class="grid-2" style="margin-bottom:14px;">
-    <div class="platform-card" id="plat-aurelius" onclick="toggleDetail('aurelius',this)">
-      <div class="platform-header"><div class="platform-name">Aurelius Secundus</div><span class="badge badge-actif">Actif</span></div>
-      <div class="platform-url">macdubh28.github.io/marc-aurele/</div>
-      <ul class="platform-items">
-        <li>Meditations completes (12 livres)</li>
-        <li>Epictete · Seneque · Glossaire</li>
-        <li>Morale de Ghost (3 piliers + 6 Lois)</li>
-        <li>Algorithme de Vie · Citations</li>
-        <li>~/marc-aurele/ — GitHub Pages</li>
-      </ul>
-    </div>
-    <div class="platform-card" id="plat-hegemonikon" onclick="toggleDetail('hegemonikon',this)">
-      <div class="platform-header"><div class="platform-name">HEGEMONIKON</div><span class="badge badge-actif">Actif · PWA</span></div>
-      <div class="platform-url">macdubh28.github.io/HEGEMONIKON/</div>
-      <ul class="platform-items">
-        <li>Journal stoicien mobile-first</li>
-        <li>5 pages : index, matin, journal, progres, archive</li>
-        <li>Streak 28 jours · Niveaux Novice->Sage</li>
-        <li>localStorage · Export JSON</li>
-        <li>~/hegemonikon/ · GHOST-2 · roger</li>
-      </ul>
-    </div>
-    <div class="platform-card" id="plat-x" onclick="toggleDetail('x',this)">
-      <div class="platform-header"><div class="platform-name">@AigleRoyal28</div><span class="badge badge-actif">Actif</span></div>
-      <div class="platform-url">x.com/AigleRoyal28</div>
-      <ul class="platform-items">
-        <li>75% Stoicisme · 10% Geopolitique africaine</li>
-        <li>10% Fitness · 5% Tech/IA</li>
-        <li>Calendrier 30 jours · Threads viraux</li>
-        <li>Promo Gumroad · Voix : Aurelius Secundus</li>
-      </ul>
-    </div>
-    <div class="platform-card" id="plat-gumroad" onclick="toggleDetail('gumroad',this)">
-      <div class="platform-header"><div class="platform-name">Gumroad Prompts Pack</div><span class="badge badge-prio">PRIORITE 1</span></div>
-      <div class="platform-url">gumroad.com · hegemonikon-prompts</div>
-      <ul class="platform-items">
-        <li>25 prompts stoiciens · 6 categories</li>
-        <li>PDF noir/bronze fpdf2 · Cover 1280x720</li>
-        <li>Prix : 17 EUR</li>
-        <li>Paiement Gumroad a configurer</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="detail-aurelius" class="detail-panel">
-    <div class="detail-title">Aurelius Secundus — Detail technique</div>
-    <div class="detail-grid">
-      <div><div class="detail-label">Stack</div><div class="detail-value">HTML · CSS · JS · GitHub Pages</div></div>
-      <div><div class="detail-label">Repo local</div><div class="detail-value" style="font-family:monospace;font-size:11px;">~/marc-aurele/</div></div>
-      <div><div class="detail-label">Polices</div><div class="detail-value">Cinzel + Crimson Text + Montserrat</div></div>
-      <div><div class="detail-label">Contrainte</div><div class="detail-value">Aucune reference a @ICF_243</div></div>
-      <div style="grid-column:1/-1"><div class="detail-label">Format cards</div><div class="detail-value" style="font-family:monospace;font-size:11px;">div.card > p.quote + p.author + p.source</div></div>
-      <div style="grid-column:1/-1"><div class="detail-label">TODO</div>
-        <div class="todo-item"><div class="todo-dot high"></div><span>Interconnexion navigation avec HEGEMONIKON</span></div>
-        <div class="todo-item"><div class="todo-dot"></div><span>Nouvelles sections philosophiques</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div id="detail-hegemonikon" class="detail-panel">
-    <div class="detail-title">HEGEMONIKON — Detail technique</div>
-    <div class="detail-grid">
-      <div><div class="detail-label">Machine</div><div class="detail-value" style="font-family:monospace;font-size:11px;">GHOST-2 · roger · ~/hegemonikon/</div></div>
-      <div><div class="detail-label">Deploy</div><div class="detail-value" style="font-family:monospace;font-size:10px;">heredoc → /tmp/ → python3 → Downloads → git push</div></div>
-      <div style="grid-column:1/-1"><div class="detail-label">Issues</div>
-        <div class="todo-item"><div class="todo-dot urgent"></div><span>Grec to hegemonikon — Cinzel mappe Latin — PNG/SVG via Pillow</span></div>
-        <div class="todo-item"><div class="todo-dot high"></div><span>PWA complete (manifest.json + service worker)</span></div>
-        <div class="todo-item"><div class="todo-dot high"></div><span>Interconnexion HEGEMONIKON - Aurelius Secundus</span></div>
-        <div class="todo-item"><div class="todo-dot"></div><span>HEAD.lock : rm -f ~/hegemonikon/.git/HEAD.lock</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div id="detail-x" class="detail-panel">
-    <div class="detail-title">@AigleRoyal28 — Strategie editoriale</div>
-    <div class="detail-grid">
-      <div><div class="detail-label">Palette X</div><span class="detail-tag">#1A1A1A</span><span class="detail-tag">#F5F5F5</span><span class="detail-tag">#D4AF37</span></div>
-      <div><div class="detail-label">Livrables</div><div class="detail-value">Calendrier 30j · Threads · Strategie</div></div>
-      <div style="grid-column:1/-1"><div class="detail-label">Note</div><div class="detail-value">@ICF_243 reste totalement separe de cet ecosysteme stoicien.</div></div>
-    </div>
-  </div>
-
-  <div id="detail-gumroad" class="detail-panel">
-    <div class="detail-title">Prompts Pack — 25 prompts · 6 categories</div>
-    <div class="detail-grid">
-      <div><div class="detail-label">Categories</div>
-        <span class="detail-tag">Rituel du Matin</span><span class="detail-tag">Examen du Soir</span><span class="detail-tag">Morale de Ghost</span><span class="detail-tag">Reflexion</span><span class="detail-tag">Productivite</span><span class="detail-tag">Corps</span>
-      </div>
-      <div><div class="detail-label">Livrables</div><div class="detail-value">PDF noir/bronze · Cover 1280x720 · Thumbnail 600x600</div></div>
-      <div style="grid-column:1/-1"><div class="detail-label">Actions urgentes</div>
-        <div class="todo-item"><div class="todo-dot urgent"></div><span>Configurer paiement Gumroad (virement bancaire)</span></div>
-        <div class="todo-item"><div class="todo-dot high"></div><span>Thread de lancement @AigleRoyal28</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="platform-card" id="plat-ghost" onclick="toggleDetail('ghost',this)">
-      <div class="platform-header"><div class="platform-name">Morale de Ghost</div><span class="badge badge-draft">Draft</span></div>
-      <div class="platform-url">Livre · Ebook Gumroad · 12-19 EUR</div>
-      <ul class="platform-items">
-        <li>Framework philosophique personnel</li>
-        <li>5 chapitres + intro + conclusion rediges</li>
-        <li>Dossier local Mac · Version site web</li>
-      </ul>
-    </div>
-    <div class="platform-card" id="plat-icf" onclick="toggleDetail('icf',this)">
-      <div class="platform-header"><div class="platform-name">@ICF_243</div><span class="badge badge-actif">Actif · Separe</span></div>
-      <div class="platform-url">x.com/ICF_243 · Congo-focus</div>
-      <ul class="platform-items">
-        <li>Contenu geopolitique africain</li>
-        <li>Totalement independant de l ecosysteme</li>
-        <li>Aucune connexion avec Aurelius Secundus</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="detail-ghost" class="detail-panel">
-    <div class="detail-title">Morale de Ghost — Livre</div>
-    <div class="detail-grid">
-      <div><div class="detail-label">Structure</div><div class="detail-value">Introduction · 5 chapitres · Table des matieres · Conclusion</div></div>
-      <div><div class="detail-label">Prochaine etape</div><div class="detail-value">Finalisation + publication PDF Gumroad · 30-50 pages</div></div>
-    </div>
-  </div>
-  <div id="detail-icf" class="detail-panel">
-    <div class="detail-title">@ICF_243 — Perimetre</div>
-    <div class="detail-value" style="padding:8px 0;">Plateforme Congo-focused, geree separement. Aucune reference croisee avec l ecosysteme Aurelius Secundus.</div>
-  </div>
-</div>
-
-<!-- TAB BASE DE DONNEES -->
-<div id="tab-db" class="tab-content">
-  <div class="section-title">Base de donnees — Reference des projets</div>
-  <div class="db-stats">
-    <div class="db-stat"><div class="db-stat-value">6</div><div class="db-stat-label">Projets</div></div>
-    <div class="db-stat"><div class="db-stat-value">4</div><div class="db-stat-label">Actifs</div></div>
-    <div class="db-stat"><div class="db-stat-value">17EUR</div><div class="db-stat-label">1er produit</div></div>
-    <div class="db-stat"><div class="db-stat-value">25</div><div class="db-stat-label">Prompts</div></div>
-  </div>
-  <div class="db-table-wrap">
-    <div class="db-search-bar">
-      <input type="text" id="db-search" placeholder="Rechercher..." oninput="filterDB(this.value)">
-      <button class="filter-btn active" onclick="filterByStatus('all',this)">Tous</button>
-      <button class="filter-btn" onclick="filterByStatus('actif',this)">Actifs</button>
-      <button class="filter-btn" onclick="filterByStatus('cours',this)">En cours</button>
-      <button class="filter-btn" onclick="filterByStatus('draft',this)">Drafts</button>
-    </div>
-    <div class="db-scroll">
-      <table class="db-table"><thead><tr>
-        <th>Projet</th><th>Statut</th><th>Priorite</th><th>Repo / Path</th><th>Progression</th><th>Next action</th>
-      </tr></thead><tbody id="db-body"></tbody></table>
-    </div>
-  </div>
-  <div style="margin-top:18px;">
-    <div class="section-title">Stack and Outils partages</div>
-    <div class="grid-3">
-      <div class="platform-card" style="cursor:default;">
-        <div class="platform-name" style="font-size:11px;margin-bottom:9px;">Deploiement</div>
-        <ul class="platform-items"><li>GitHub Pages (macdubh28)</li><li>Python heredoc base64</li><li>git push depuis Mac</li><li>Jamais inline -c (zsh)</li></ul>
-      </div>
-      <div class="platform-card" style="cursor:default;">
-        <div class="platform-name" style="font-size:11px;margin-bottom:9px;">Generation PDF</div>
-        <ul class="platform-items"><li>fpdf2 (Prompts Pack)</li><li>reportlab (Architecture)</li><li>pdf2image + poppler</li><li>Palette noir/bronze</li></ul>
-      </div>
-      <div class="platform-card" style="cursor:default;">
-        <div class="platform-name" style="font-size:11px;margin-bottom:9px;">Identite globale</div>
-        <ul class="platform-items"><li>Noir #0D0D0D · Bronze #C9933A</li><li>Cinzel + Crimson Text</li><li>Mobile-first · PWA</li><li>Aigle comme embleme</li></ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TAB ROADMAP -->
-<div id="tab-roadmap" class="tab-content">
-  <div class="section-title">Roadmap 2026</div>
-  <div class="roadmap-phase">
-    <div class="roadmap-phase-label"><div class="roadmap-phase-name">Court terme</div><div class="roadmap-phase-duration">1-4 semaines</div></div>
-    <div class="roadmap-phase-content">
-      <div class="roadmap-item"><div class="roadmap-item-name">Configurer paiement Gumroad</div><div class="roadmap-item-desc">Virement bancaire · Debloque les revenus du Prompts Pack</div></div>
-      <div class="roadmap-item"><div class="roadmap-item-name">Thread de lancement @AigleRoyal28</div><div class="roadmap-item-desc">Promouvoir le Prompts Pack · Premier euro encaisse</div></div>
-      <div class="roadmap-item"><div class="roadmap-item-name">Strategie promo X</div><div class="roadmap-item-desc">Sequence de posts · Creer l urgence · Appel a l action</div></div>
-    </div>
-  </div>
-  <div class="roadmap-phase">
-    <div class="roadmap-phase-label"><div class="roadmap-phase-name">Moyen terme</div><div class="roadmap-phase-duration">1-3 mois</div></div>
-    <div class="roadmap-phase-content">
-      <div class="roadmap-item"><div class="roadmap-item-name">PWA HEGEMONIKON complete</div><div class="roadmap-item-desc">manifest.json + service worker · Offline · Notifications</div></div>
-      <div class="roadmap-item"><div class="roadmap-item-name">Interconnexion plateformes</div><div class="roadmap-item-desc">Navigation croisee HEGEMONIKON - Aurelius Secundus</div></div>
-      <div class="roadmap-item"><div class="roadmap-item-name">Corriger rendu grec</div><div class="roadmap-item-desc">PNG/SVG via Pillow + Times New Roman</div></div>
-      <div class="roadmap-item"><div class="roadmap-item-name">Ebook Morale de Ghost</div><div class="roadmap-item-desc">Finaliser · PDF Gumroad · 30-50 pages · 12-19 EUR</div></div>
-    </div>
-  </div>
-  <div class="roadmap-phase">
-    <div class="roadmap-phase-label"><div class="roadmap-phase-name">Long terme</div><div class="roadmap-phase-duration">3-6 mois</div></div>
-    <div class="roadmap-phase-content">
-      <div class="roadmap-item"><div class="roadmap-item-name">HEGEMONIKON Premium</div><div class="roadmap-item-desc">Sync cloud · Fonctions avancees · Tier payant</div></div>
-      <div class="roadmap-item"><div class="roadmap-item-name">X Monetization @AigleRoyal28</div><div class="roadmap-item-desc">Seuils X Premium atteints · Abonnements · Tips</div></div>
-      <div class="roadmap-item"><div class="roadmap-item-name">Enrichir Aurelius Secundus</div><div class="roadmap-item-desc">Nouvelles sections · Contenu philosophique avance</div></div>
-      <div class="roadmap-item"><div class="roadmap-item-name">Dashboard v2</div><div class="roadmap-item-desc">Mise a jour de ce document de commandement</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- TAB MONETISATION -->
-<div id="tab-monetisation" class="tab-content">
-  <div class="section-title">Roadmap de monetisation</div>
-  <div class="monet-card">
-    <div class="monet-card-header"><div class="monet-card-title">Prompts Pack Gumroad</div><div class="monet-card-rank">01</div></div>
-    <div class="monet-card-body">
-      <div><div class="monet-k">Statut</div><span class="badge badge-prio">PRIORITE 1</span></div>
-      <div><div class="monet-k">Prix</div><div class="monet-v price">17 EUR</div></div>
-      <div><div class="monet-k">Produit</div><div class="monet-v">25 prompts · 6 categories · PDF noir/bronze</div></div>
-      <div><div class="monet-k">Promo</div><div class="monet-v">@AigleRoyal28 · Thread de lancement</div></div>
-      <div style="grid-column:1/-1"><div class="monet-k">Bloquant</div><div class="monet-v" style="color:#E85D24;">Paiement Gumroad a configurer (virement bancaire)</div></div>
-    </div>
-  </div>
-  <div class="monet-card">
-    <div class="monet-card-header"><div class="monet-card-title">Morale de Ghost — Ebook</div><div class="monet-card-rank">02</div></div>
-    <div class="monet-card-body">
-      <div><div class="monet-k">Statut</div><span class="badge badge-draft">Draft</span></div>
-      <div><div class="monet-k">Prix cible</div><div class="monet-v price">12-19 EUR</div></div>
-      <div><div class="monet-k">Contenu</div><div class="monet-v">30-50 pages · 3 piliers · 5 chapitres rediges</div></div>
-      <div><div class="monet-k">Next</div><div class="monet-v">Finaliser + PDF Gumroad + promo X</div></div>
-    </div>
-  </div>
-  <div class="monet-card">
-    <div class="monet-card-header"><div class="monet-card-title">X Monetization @AigleRoyal28</div><div class="monet-card-rank">03</div></div>
-    <div class="monet-card-body">
-      <div><div class="monet-k">Statut</div><span class="badge badge-cours">En construction</span></div>
-      <div><div class="monet-k">Modele</div><div class="monet-v">Abonnements · Tips · Promo produits</div></div>
-      <div><div class="monet-k">Contenu</div><div class="monet-v">75% Stoicisme · Calendrier 30j · Threads viraux</div></div>
-      <div><div class="monet-k">Objectif</div><div class="monet-v">Atteindre seuils X Premium</div></div>
-    </div>
-  </div>
-  <div class="monet-card">
-    <div class="monet-card-header"><div class="monet-card-title">HEGEMONIKON Premium</div><div class="monet-card-rank">04</div></div>
-    <div class="monet-card-body">
-      <div><div class="monet-k">Statut</div><span class="badge badge-draft">Long terme</span></div>
-      <div><div class="monet-k">Concept</div><div class="monet-v">PWA premium · Sync cloud · Stats avancees</div></div>
-      <div><div class="monet-k">Prerequis</div><div class="monet-v">PWA complete + base utilisateurs X</div></div>
-      <div><div class="monet-k">Potentiel</div><div class="monet-v">Abonnement mensuel · Recurrent</div></div>
-    </div>
-  </div>
-</div>
-
-</div><!-- /main -->
-
-<div class="as-quote">
-  <div class="quote-text">"Tu as du pouvoir sur ton esprit, pas sur les evenements exterieurs."</div>
-  <div class="quote-author">Marc Aurele · Pensees</div>
-</div>
-<div class="footer">
-  <div class="footer-text">Macdubh · Aurelius Secundus · @AigleRoyal28</div>
-  <div class="footer-text">Document de Commandement · Mars 2026</div>
-  <div class="footer-text">Dashboard V2</div>
-</div>
-
+<script src="data.js"></script>
 <script>
-const DB=[
-  {name:'Aurelius Secundus',statut:'Actif',sb:'badge-actif',prio:'Maintenance',pb:'badge-cours',repo:'~/marc-aurele/',prog:85,next:'Interconnexion + enrichissement'},
-  {name:'HEGEMONIKON',statut:'Actif',sb:'badge-actif',prio:'PWA + interconnexion',pb:'badge-cours',repo:'~/hegemonikon/ · GHOST-2',prog:70,next:'PWA + grec + navigation croisee'},
-  {name:'Prompts Pack Gumroad',statut:'En cours',sb:'badge-cours',prio:'PRIORITE 1',pb:'badge-prio',repo:'gumroad · hegemonikon-prompts',prog:80,next:'Configurer paiement Gumroad'},
-  {name:'@AigleRoyal28',statut:'Actif',sb:'badge-actif',prio:'Monetisation X',pb:'badge-cours',repo:'x.com/AigleRoyal28',prog:60,next:'Thread lancement · Croissance'},
-  {name:'Morale de Ghost',statut:'Draft',sb:'badge-draft',prio:'Ebook Gumroad',pb:'badge-draft',repo:'Dossier local Mac',prog:40,next:'Finaliser + publier Gumroad'},
-  {name:'@ICF_243',statut:'Actif Separe',sb:'badge-actif',prio:'Independant',pb:'badge-draft',repo:'x.com/ICF_243',prog:50,next:'Hors ecosysteme stoicien'}
-];
-let cf='all',cs='';
-function renderDB(d){
-  const b=document.getElementById('db-body');b.innerHTML='';
-  d.forEach(r=>{
-    const tr=document.createElement('tr');
-    tr.innerHTML=`<td>${r.name}</td><td><span class="badge ${r.sb}">${r.statut}</span></td><td><span class="badge ${r.pb}">${r.prio}</span></td><td style="font-family:monospace;font-size:10px;color:var(--bronze2);">${r.repo}</td><td><div style="display:flex;align-items:center;gap:5px;"><div class="prog-bar-wrap"><div class="prog-bar" style="width:${r.prog}%"></div></div><span style="font-size:10px;color:var(--blanc2);">${r.prog}%</span></div></td><td style="font-size:11px;font-style:italic;">${r.next}</td>`;
-    b.appendChild(tr);
+// ── YOUTUBE IFRAME API ──────────────────────────────────────────────────────
+let ytPlayer = null;
+let ytReady = false;
+let pendingVideoId = null;
+
+window.onYouTubeIframeAPIReady = function() {
+  ytReady = true;
+  ytPlayer = new YT.Player('yt-player-frame', {
+    height: '0', width: '0',
+    playerVars: { autoplay: 0, controls: 0, rel: 0, modestbranding: 1, playsinline: 1 },
+    events: {
+      onReady: function(e) {
+        if (pendingVideoId) { e.target.loadVideoById(pendingVideoId); pendingVideoId = null; }
+      },
+      onStateChange: function(e) {
+        if (e.data === YT.PlayerState.ENDED) nextTrack();
+        if (e.data === YT.PlayerState.PLAYING) {
+          document.getElementById('btnPlay').innerHTML = '&#9646;&#9646;';
+          startProgressPoll();
+        } else {
+          document.getElementById('btnPlay').innerHTML = '&#9654;';
+        }
+      }
+    }
+  });
+};
+
+// Load YouTube API
+(function() {
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+})();
+
+// ── PLAYER STATE ────────────────────────────────────────────────────────────
+let currentPlaylist = null;
+let currentTrackIdx = 0;
+let isPlaying = false;
+let progressInterval = null;
+
+function playPlaylist(playlistId, startIdx) {
+  currentPlaylist = ASH_DATA.playlists.find(p => p.id === playlistId);
+  currentTrackIdx = startIdx || 0;
+  loadCurrentTrack();
+  document.querySelectorAll('.playlist-card').forEach(c => {
+    c.classList.toggle('playing', c.dataset.id === playlistId);
+  });
+  // Update track highlight in detail view
+  updateTrackHighlight();
+}
+
+function loadCurrentTrack() {
+  if (!currentPlaylist) return;
+  const track = currentPlaylist.tracks[currentTrackIdx];
+  if (!track) return;
+
+  document.getElementById('playerTrack').textContent = track.title;
+  document.getElementById('playerArtist').textContent = track.artist;
+  document.getElementById('playerPlaylist').textContent = currentPlaylist.title;
+  document.getElementById('playerThumb').textContent = currentPlaylist.icon;
+  document.getElementById('yt-player-wrap').classList.add('visible');
+
+  // Search YouTube for the track
+  searchAndPlay(track.ytSearch);
+}
+
+async function searchAndPlay(query) {
+  // Use YouTube's search via oEmbed as fallback, or direct search
+  // We use the YouTube search redirect approach — most reliable for embedded
+  const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+  
+  // Try to get the first result video ID via a CORS-friendly approach
+  // We use a known-good strategy: embed as a search playlist
+  // For now, open YouTube search in a new tab as fallback, 
+  // and load the video once we have the ID from our curated data
+  
+  if (!ytReady || !ytPlayer) {
+    pendingVideoId = null;
+    // Show loading state
+    document.getElementById('playerTrack').innerHTML = 
+      '<span class="yt-loading"></span>' + (currentPlaylist.tracks[currentTrackIdx]?.title || '');
+    return;
+  }
+
+  // Load using cueVideoByUrl with search — YouTube handles resolution
+  try {
+    // Use YouTube search list via embed
+    ytPlayer.loadVideoByUrl(`https://www.youtube.com/v/?q=${encodeURIComponent(query)}&autoplay=1`);
+  } catch(e) {
+    // Fallback: use cueVideoById with a direct known search
+    ytPlayer.cuePlaylist({listType: 'search', list: query, index: 0});
+    ytPlayer.playVideo();
+  }
+  isPlaying = true;
+  updateTrackHighlight();
+}
+
+function playPause() {
+  if (!ytPlayer || !ytReady) return;
+  if (isPlaying) {
+    ytPlayer.pauseVideo();
+    isPlaying = false;
+  } else {
+    ytPlayer.playVideo();
+    isPlaying = true;
+  }
+}
+
+function prevTrack() {
+  if (!currentPlaylist) return;
+  currentTrackIdx = (currentTrackIdx - 1 + currentPlaylist.tracks.length) % currentPlaylist.tracks.length;
+  loadCurrentTrack();
+}
+
+function nextTrack() {
+  if (!currentPlaylist) return;
+  currentTrackIdx = (currentTrackIdx + 1) % currentPlaylist.tracks.length;
+  loadCurrentTrack();
+}
+
+function startProgressPoll() {
+  if (progressInterval) clearInterval(progressInterval);
+  progressInterval = setInterval(() => {
+    if (!ytPlayer || !isPlaying) return;
+    try {
+      const d = ytPlayer.getDuration();
+      const t = ytPlayer.getCurrentTime();
+      if (d > 0) {
+        document.getElementById('progressBar').style.width = ((t/d)*100) + '%';
+      }
+    } catch(e) {}
+  }, 1000);
+}
+
+function updateTrackHighlight() {
+  document.querySelectorAll('.track-row').forEach((row, i) => {
+    row.classList.toggle('active', i === currentTrackIdx);
   });
 }
-function filterDB(s){cs=s.toLowerCase();applyF();}
-function filterByStatus(s,btn){cf=s;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyF();}
-function applyF(){
-  let d=DB;
-  if(cf!=='all')d=d.filter(r=>r.statut.toLowerCase().includes(cf)||r.prio.toLowerCase().includes(cf));
-  if(cs)d=d.filter(r=>r.name.toLowerCase().includes(cs)||r.statut.toLowerCase().includes(cs)||r.repo.toLowerCase().includes(cs)||r.next.toLowerCase().includes(cs));
-  renderDB(d);
+
+document.getElementById('btnPlay').addEventListener('click', playPause);
+document.getElementById('btnPrev').addEventListener('click', prevTrack);
+document.getElementById('btnNext').addEventListener('click', nextTrack);
+
+// ── RENDER PLAYLISTS ────────────────────────────────────────────────────────
+function renderPlaylists(cat) {
+  const grid = document.getElementById('playlistGrid');
+  const playlists = cat === 'all' 
+    ? ASH_DATA.playlists 
+    : ASH_DATA.playlists.filter(p => p.category === cat);
+
+  grid.innerHTML = playlists.map(pl => `
+    <div class="playlist-card ${currentPlaylist?.id === pl.id ? 'playing' : ''}" 
+         data-id="${pl.id}" 
+         onclick="openDetail('${pl.id}')">
+      <div class="card-inner">
+        <span class="card-icon">${pl.icon}</span>
+        <div class="card-title">${pl.title}</div>
+        <div class="card-subtitle">${pl.subtitle}</div>
+        <div class="card-tracks-preview">
+          ${pl.tracks.slice(0, 3).map(t => `
+            <div class="card-track-line">
+              <strong>${t.title}</strong> — ${t.artist}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-count">${pl.tracks.length} titres</span>
+        <div style="display:flex;gap:6px;align-items:center;">
+          <button class="vlc-card-btn" onclick="event.stopPropagation(); exportM3U('${pl.id}')" title="Export VLC .m3u">▶ .m3u</button>
+          <button class="card-play-btn" onclick="event.stopPropagation(); playPlaylist('${pl.id}', 0)" title="Lancer la playlist">&#9654;</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
 }
-function showTab(t,btn){
-  document.querySelectorAll('.tab-content').forEach(x=>x.classList.remove('active'));
-  document.getElementById('tab-'+t).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+
+// ── CATEGORY TABS ────────────────────────────────────────────────────────────
+document.getElementById('catTabs').addEventListener('click', e => {
+  const btn = e.target.closest('.cat-tab');
+  if (!btn) return;
+  document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  renderPlaylists(btn.dataset.cat);
+});
+
+// ── DETAIL VIEW ─────────────────────────────────────────────────────────────
+function openDetail(playlistId) {
+  const pl = ASH_DATA.playlists.find(p => p.id === playlistId);
+  if (!pl) return;
+  
+  const catLabel = ASH_DATA.categories.find(c => c.id === pl.category)?.label || pl.category;
+  
+  // Check if playlist has chapters (narrative)
+  const hasChapters = pl.tracks.some(t => t.chapter);
+  const hasEras = pl.tracks.some(t => t.era);
+  
+  let prevChapter = '';
+  let prevEra = '';
+  
+  const trackRows = pl.tracks.map((t, i) => {
+    let extra = '';
+    if (hasChapters && t.chapter && t.chapter !== prevChapter) {
+      prevChapter = t.chapter;
+      extra = `<div class="track-chapter">${t.chapter}</div>`;
+    }
+    if (hasEras && t.era && t.era !== prevEra) {
+      prevEra = t.era;
+      extra = `<div class="track-chapter">${t.era}</div>`;
+    }
+    return `
+      ${extra}
+      <div class="track-row ${currentPlaylist?.id === playlistId && currentTrackIdx === i ? 'active' : ''}" 
+           onclick="playPlaylist('${playlistId}', ${i}); updateTrackHighlight()">
+        <div class="track-num">${i+1}</div>
+        <div class="track-info">
+          <div class="track-name">${t.title}</div>
+          <div class="track-artist">${t.artist}</div>
+        </div>
+        <div class="track-album">${t.album}</div>
+        <div class="track-year">${t.year}</div>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('detailContent').innerHTML = `
+    <div style="max-width:800px; margin: 0 auto;">
+      <div style="padding-bottom: 1.5rem;">
+        <button class="btn btn-back" onclick="closeDetail()">&#8592; Retour</button>
+      </div>
+      <div class="detail-header">
+        <div class="detail-icon-block">${pl.icon}</div>
+        <div class="detail-info">
+          <div class="detail-category">${catLabel}</div>
+          <div class="detail-title">${pl.title}</div>
+          <div class="detail-subtitle">${pl.subtitle}</div>
+          <div class="detail-mood">${pl.mood}</div>
+          <div class="detail-actions">
+            <button class="btn btn-primary" onclick="playPlaylist('${pl.id}', 0)">&#9654; Lancer</button>
+            <button class="btn btn-secondary" onclick="shufflePlay('${pl.id}')">⇌ Shuffle</button>
+            <button class="btn btn-vlc" onclick="exportM3U('${pl.id}')" title="Télécharger la playlist pour VLC desktop">
+              <span class="vlc-icon">▶</span> VLC Desktop
+            </button>
+            <button class="btn btn-vlc-ios" onclick="openInVLCiOS('${pl.id}')" title="Ouvrir le premier titre dans VLC iOS">
+              <span class="vlc-icon">▶</span> VLC iPhone
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tracklist">
+        <div class="tracklist-header">
+          <span>#</span>
+          <span>Titre / Artiste</span>
+          <span>Album</span>
+          <span style="text-align:right">Année</span>
+        </div>
+        ${trackRows}
+      </div>
+    </div>
+  `;
+
+  document.getElementById('detailView').classList.add('open');
+  window.scrollTo(0, 0);
 }
-function toggleDetail(id,srcEl){
-  const el=document.getElementById('detail-'+id);
-  if(!el)return;
-  const vis=el.classList.contains('visible');
-  document.querySelectorAll('.detail-panel').forEach(d=>d.classList.remove('visible'));
-  document.querySelectorAll('.platform-card,.identity-block').forEach(p=>p.classList.remove('active'));
-  if(!vis){el.classList.add('visible');if(srcEl)srcEl.classList.add('active');}
+
+function closeDetail() {
+  document.getElementById('detailView').classList.remove('open');
 }
-renderDB(DB);
+
+function shufflePlay(playlistId) {
+  const pl = ASH_DATA.playlists.find(p => p.id === playlistId);
+  if (!pl) return;
+  // Shuffle the tracks order in memory for this session
+  const shuffled = [...pl.tracks].sort(() => Math.random() - 0.5);
+  const tempPl = { ...pl, tracks: shuffled };
+  currentPlaylist = tempPl;
+  currentTrackIdx = 0;
+  loadCurrentTrack();
+  closeDetail();
+}
+
+// ── RENDER ARTISTS ──────────────────────────────────────────────────────────
+function renderArtists() {
+  const grid = document.getElementById('artistsGrid');
+  const artistColors = {
+    holden: '#8b1a1a',
+    marciano: '#b8960c',
+    ka: '#4a6741',
+    stylesp: '#2a4a6b'
+  };
+  
+  grid.innerHTML = Object.entries(ASH_DATA.artists).map(([id, artist]) => `
+    <div class="artist-card" 
+         style="border-top-color: ${artistColors[id]};"
+         onclick="scrollToDiscoSection('${id}')">
+      <div class="artist-name">${artist.name}</div>
+      <div class="artist-origin" style="color: ${artistColors[id]}">${artist.origin}</div>
+      <div class="artist-years">${artist.years}</div>
+      <div class="artist-bio">${artist.bio}</div>
+      <div class="artist-albums-count">${artist.albums.length} sorties cataloguées</div>
+    </div>
+  `).join('');
+}
+
+// ── RENDER DISCOGRAPHIES ─────────────────────────────────────────────────────
+function renderDiscographies() {
+  const container = document.getElementById('discoContainer');
+  const artistColors = {
+    holden: '#8b1a1a',
+    marciano: '#b8960c',
+    ka: '#4a6741',
+    stylesp: '#2a4a6b'
+  };
+
+  container.innerHTML = Object.entries(ASH_DATA.artists).map(([id, artist]) => `
+    <div id="disco-${id}" style="margin-bottom: 3rem;">
+      <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--blanc); 
+                 margin-bottom: 0.25rem; border-left: 3px solid ${artistColors[id]}; 
+                 padding-left: 1rem; letter-spacing: 0.05em; font-weight: 400;">
+        ${artist.name}
+      </h3>
+      <div style="font-family: 'Rajdhani', sans-serif; font-size: 0.68rem; 
+                  letter-spacing: 0.15em; text-transform: uppercase; 
+                  color: ${artistColors[id]}; padding-left: 1.25rem; margin-bottom: 1.25rem;">
+        ${artist.origin} · ${artist.years}
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.6rem;">
+        ${artist.albums.map(album => `
+          <div style="background: var(--noir2); border: 1px solid rgba(255,255,255,0.05); 
+                      padding: 0.75rem 1rem; border-left: 2px solid ${album.type === 'LP' ? artistColors[id] : 'rgba(255,255,255,0.1)'};">
+            <div style="font-family: 'Rajdhani', sans-serif; font-size: 0.85rem; 
+                        font-weight: 600; color: var(--blanc2); margin-bottom: 0.2rem;">
+              ${album.title}
+            </div>
+            <div style="font-family: 'Rajdhani', sans-serif; font-size: 0.65rem; 
+                        letter-spacing: 0.1em; text-transform: uppercase; color: var(--acier);">
+              ${album.year}
+              ${album.type !== 'LP' ? ` · <span style="color: var(--acier2);">${album.type}</span>` : ''}
+              ${album.feat ? ` · feat. ${album.feat}` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function scrollToDiscoSection(id) {
+  document.getElementById('discographies').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => {
+    const el = document.getElementById('disco-' + id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 400);
+}
+
+// ── VLC INTEGRATION ──────────────────────────────────────────────────────────
+
+// Builds a YouTube search URL from a track's ytSearch query
+function ytSearchURL(ytSearch) {
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent(ytSearch)}`;
+}
+
+// Builds a direct YouTube search that VLC can open via yt-dlp
+// VLC desktop with yt-dlp reads: ytsearch:query
+function ytVLCSearch(ytSearch) {
+  return `ytsearch:${ytSearch}`;
+}
+
+// ── EXPORT .M3U for VLC Desktop ──────────────────────────────────────────────
+// Generates a .m3u file with all tracks as YouTube search queries.
+// VLC desktop (with yt-dlp installed) resolves these to actual streams.
+function exportM3U(playlistId) {
+  const pl = ASH_DATA.playlists.find(p => p.id === playlistId);
+  if (!pl) return;
+
+  const lines = ['#EXTM3U', `#PLAYLIST:${pl.title}`, ''];
+
+  pl.tracks.forEach((t, i) => {
+    // #EXTINF: duration (-1 = unknown), Artist - Title
+    lines.push(`#EXTINF:-1,${t.artist} - ${t.title}`);
+    lines.push(`#EXTVLCOPT:network-caching=1000`);
+    // YouTube search URL — VLC desktop with yt-dlp resolves this
+    lines.push(`https://www.youtube.com/results?search_query=${encodeURIComponent(t.ytSearch)}`);
+    lines.push('');
+  });
+
+  const content = lines.join('\n');
+  const blob = new Blob([content], { type: 'audio/x-mpegurl' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `ash-steel_${pl.id}.m3u`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  showVLCToast('M3U téléchargé — ouvre-le avec VLC desktop');
+}
+
+// ── VLC iOS DEEPLINK ─────────────────────────────────────────────────────────
+// vlc:// protocol opens VLC iOS directly with a URL.
+// We send the full YouTube search URL — VLC iOS handles resolution.
+// Shows a modal with all tracks as vlc:// links so user can tap each one.
+function openInVLCiOS(playlistId) {
+  const pl = ASH_DATA.playlists.find(p => p.id === playlistId);
+  if (!pl) return;
+
+  // Detect if we're on iOS
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isIOS) {
+    // On iPhone: show the VLC iOS panel with tappable track links
+    showVLCiOSPanel(pl);
+  } else {
+    // On desktop: show instructions + QR-style link list
+    showVLCiOSPanel(pl, true);
+  }
+}
+
+function showVLCiOSPanel(pl, isDesktop) {
+  const existing = document.getElementById('vlc-panel');
+  if (existing) existing.remove();
+
+  const trackLinks = pl.tracks.map((t, i) => {
+    const ytURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(t.ytSearch)}`;
+    const vlcURL = `vlc://${ytURL.replace('https://', '')}`;
+    return `
+      <div class="vlc-track-row">
+        <span class="vlc-track-num">${i+1}</span>
+        <div class="vlc-track-info">
+          <div class="vlc-track-name">${t.title}</div>
+          <div class="vlc-track-artist">${t.artist}</div>
+        </div>
+        <a class="vlc-open-btn" href="${vlcURL}" title="Ouvrir dans VLC iOS">▶</a>
+      </div>
+    `;
+  }).join('');
+
+  const panel = document.createElement('div');
+  panel.id = 'vlc-panel';
+  panel.innerHTML = `
+    <div class="vlc-panel-overlay" onclick="closeVLCPanel()"></div>
+    <div class="vlc-panel-inner">
+      <div class="vlc-panel-header">
+        <div class="vlc-panel-title">
+          <span class="vlc-logo">▶</span>
+          VLC iPhone — ${pl.title}
+        </div>
+        <button class="vlc-panel-close" onclick="closeVLCPanel()">✕</button>
+      </div>
+      <div class="vlc-panel-note">
+        ${isDesktop 
+          ? 'Ouvre cette page sur ton iPhone pour utiliser les liens VLC directement.'
+          : 'Tape sur ▶ pour ouvrir le titre dans VLC. VLC doit être installé sur ton iPhone.'
+        }
+      </div>
+      <div class="vlc-tracklist">
+        ${trackLinks}
+      </div>
+      <div class="vlc-panel-footer">
+        <button class="btn btn-vlc" onclick="exportM3U('${pl.id}'); closeVLCPanel()">
+          Télécharger .m3u pour VLC Desktop
+        </button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(panel);
+  requestAnimationFrame(() => panel.querySelector('.vlc-panel-inner').classList.add('open'));
+}
+
+function closeVLCPanel() {
+  const panel = document.getElementById('vlc-panel');
+  if (panel) {
+    panel.querySelector('.vlc-panel-inner').classList.remove('open');
+    setTimeout(() => panel.remove(), 300);
+  }
+}
+
+// ── VLC TOAST ────────────────────────────────────────────────────────────────
+function showVLCToast(msg) {
+  const existing = document.getElementById('vlc-toast');
+  if (existing) existing.remove();
+  const toast = document.createElement('div');
+  toast.id = 'vlc-toast';
+  toast.textContent = msg;
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add('show'));
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 400);
+  }, 3000);
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+renderPlaylists('all');
+renderArtists();
+renderDiscographies();
 </script>
+
+<script src="https://www.youtube.com/iframe_api" defer></script>
 </body>
 </html>
