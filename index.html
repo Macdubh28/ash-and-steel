@@ -1,610 +1,343 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ash & Steel — Playlists curatorées : Errol Holden, Roc Marciano, Ka, Styles P">
-<title>ASH & STEEL</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ash & Steel — Playlists curatorées : Errol Holden, Roc Marciano, Ka, Styles P">
+  <title>ASH & STEEL</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ASH&STEEL">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
 </head>
 <body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">ASH<span>&</span>STEEL</div>
+    <ul class="nav-links">
+      <li><a href="#playlists" class="active">Playlists</a></li>
+      <li><a href="#artistes">Artistes</a></li>
+      <li><a href="#discographies">Discographies</a></li>
+    </ul>
+  </nav>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-logo">ASH<span>&</span>STEEL</div>
-  <ul class="nav-links">
-    <li><a href="#playlists" class="active">Playlists</a></li>
-    <li><a href="#artistes">Artistes</a></li>
-    <li><a href="#discographies">Discographies</a></li>
-  </ul>
-</nav>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-eyebrow">New York Underground — Curation</div>
+    <h1>ASH<em>&</em><br>STEEL</h1>
+    <div class="hero-sub">Errol Holden · Roc Marciano · Ka · Styles P</div>
+    <p class="hero-desc">Quatre voix. Un seul territoire : le minimalisme stoïque new-yorkais. Réalisme, discipline, élégance sombre. 15 playlists curatorées.</p>
+  </header>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-eyebrow">New York Underground — Curation</div>
-  <h1>ASH<em>&</em><br>STEEL</h1>
-  <div class="hero-sub">Errol Holden · Roc Marciano · Ka · Styles P</div>
-  <p class="hero-desc">Quatre voix. Un seul territoire : le minimalisme stoïque new-yorkais. Réalisme, discipline, élégance sombre. 15 playlists curatorées.</p>
-</header>
+  <!-- MAIN PLAYLISTS SECTION -->
+  <main class="section" id="playlists">
+    <div class="section-header">
+      <span class="section-icon">◆</span>
+      <h2 class="section-title">Playlists</h2>
+      <span class="section-count">15 playlists · 4 artistes</span>
+    </div>
+    <div class="cat-tabs" id="catTabs">
+      <button class="cat-tab active" data-cat="all">Toutes</button>
+      <button class="cat-tab" data-cat="mood">Ambiances</button>
+      <button class="cat-tab" data-cat="narrative">Histoires</button>
+      <button class="cat-tab" data-cat="technique">Technique</button>
+      <button class="cat-tab" data-cat="algo">Mon Algorithme</button>
+      <button class="cat-tab" data-cat="carre">Le Carré Magique</button>
+    </div>
+    <div class="playlist-grid" id="playlistGrid"></div>
+  </main>
 
-<!-- MAIN PLAYLISTS SECTION -->
-<main class="section" id="playlists">
-  <div class="section-header">
-    <span class="section-icon">◆</span>
-    <h2 class="section-title">Playlists</h2>
-    <span class="section-count">15 playlists · 4 artistes</span>
+  <div class="divider"></div>
+
+  <!-- ARTISTS SECTION -->
+  <section class="section" id="artistes">
+    <div class="section-header">
+      <span class="section-icon">◈</span>
+      <h2 class="section-title">Les 4 Artistes</h2>
+    </div>
+    <div class="artists-grid" id="artistsGrid"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DISCOGRAPHIES SECTION -->
+  <section class="section" id="discographies">
+    <div class="section-header">
+      <span class="section-icon">≡</span>
+      <h2 class="section-title">Discographies</h2>
+      <span class="section-count">Catalogues complets</span>
+    </div>
+    <div id="discoContainer"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">ASH<span>&</span>STEEL</div>
+    <div class="footer-note">Streaming via YouTube · macdubh28.github.io/ash-and-steel</div>
+  </footer>
+
+  <!-- DETAIL VIEW -->
+  <div class="detail-view" id="detailView">
+    <div id="detailContent"></div>
   </div>
 
-  <!-- CATEGORY TABS -->
-  <div class="cat-tabs" id="catTabs">
-    <button class="cat-tab active" data-cat="all">Toutes</button>
-    <button class="cat-tab" data-cat="mood">Ambiances</button>
-    <button class="cat-tab" data-cat="narrative">Histoires</button>
-    <button class="cat-tab" data-cat="technique">Technique</button>
-    <button class="cat-tab" data-cat="algo">Mon Algorithme</button>
-    <button class="cat-tab" data-cat="carre">Le Carré Magique</button>
+  <!-- YOUTUBE MINI PLAYER -->
+  <div id="yt-player-wrap">
+    <div class="player-progress"><div class="player-progress-bar" id="progressBar"></div></div>
+    <div id="yt-player-frame"></div>
+    <div class="player-thumb" id="playerThumb">◆</div>
+    <div class="player-info">
+      <div class="player-track" id="playerTrack">–</div>
+      <div class="player-artist" id="playerArtist">Sélectionner une playlist</div>
+    </div>
+    <div class="player-playlist" id="playerPlaylist">–</div>
+    <div class="player-controls">
+      <button class="player-btn" id="btnPrev" title="Précédent">&#9664;&#9664;</button>
+      <button class="player-btn main" id="btnPlay" title="Lecture / Pause">&#9654;</button>
+      <button class="player-btn" id="btnNext" title="Suivant">&#9654;&#9654;</button>
+    </div>
   </div>
 
-  <!-- PLAYLIST GRID -->
-  <div class="playlist-grid" id="playlistGrid"></div>
-</main>
-
-<div class="divider"></div>
-
-<!-- ARTISTS SECTION -->
-<section class="section" id="artistes">
-  <div class="section-header">
-    <span class="section-icon">◈</span>
-    <h2 class="section-title">Les 4 Artistes</h2>
-  </div>
-  <div class="artists-grid" id="artistsGrid"></div>
-</section>
-
-<div class="divider"></div>
-
-<!-- DISCOGRAPHIES SECTION -->
-<section class="section" id="discographies">
-  <div class="section-header">
-    <span class="section-icon">≡</span>
-    <h2 class="section-title">Discographies</h2>
-    <span class="section-count">Catalogues complets</span>
-  </div>
-  <div id="discoContainer"></div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-logo">ASH<span>&</span>STEEL</div>
-  <div class="footer-note">Streaming via YouTube · macdubh28.github.io/ash-and-steel</div>
-</footer>
-
-<!-- DETAIL VIEW (overlay) -->
-<div class="detail-view" id="detailView">
-  <div id="detailContent"></div>
-</div>
-
-<!-- YOUTUBE MINI PLAYER -->
-<div id="yt-player-wrap">
-  <div class="player-progress"><div class="player-progress-bar" id="progressBar"></div></div>
-  <div id="yt-player-frame"></div>
-  <div class="player-thumb" id="playerThumb">◆</div>
-  <div class="player-info">
-    <div class="player-track" id="playerTrack">–</div>
-    <div class="player-artist" id="playerArtist">Sélectionner une playlist</div>
-  </div>
-  <div class="player-playlist" id="playerPlaylist">–</div>
-  <div class="player-controls">
-    <button class="player-btn" id="btnPrev" title="Précédent">&#9664;&#9664;</button>
-    <button class="player-btn main" id="btnPlay" title="Lecture / Pause">&#9654;</button>
-    <button class="player-btn" id="btnNext" title="Suivant">&#9654;&#9654;</button>
-  </div>
-</div>
-
-<script src="data.js"></script>
-<script>
-// ── YOUTUBE IFRAME API ──────────────────────────────────────────────────────
-let ytPlayer = null;
-let ytReady = false;
-let pendingVideoId = null;
-
-window.onYouTubeIframeAPIReady = function() {
-  ytReady = true;
-  ytPlayer = new YT.Player('yt-player-frame', {
-    height: '0', width: '0',
-    playerVars: { autoplay: 0, controls: 0, rel: 0, modestbranding: 1, playsinline: 1 },
-    events: {
-      onReady: function(e) {
-        if (pendingVideoId) { e.target.loadVideoById(pendingVideoId); pendingVideoId = null; }
-      },
-      onStateChange: function(e) {
-        if (e.data === YT.PlayerState.ENDED) nextTrack();
-        if (e.data === YT.PlayerState.PLAYING) {
-          document.getElementById('btnPlay').innerHTML = '&#9646;&#9646;';
-          startProgressPoll();
-        } else {
-          document.getElementById('btnPlay').innerHTML = '&#9654;';
+  <script src="data.js"></script>
+  <script>
+    let ytPlayer = null, ytReady = false, pendingVideoId = null;
+    window.onYouTubeIframeAPIReady = function() {
+      ytReady = true;
+      ytPlayer = new YT.Player('yt-player-frame', {
+        height: '0', width: '0',
+        playerVars: { autoplay: 0, controls: 0, rel: 0, modestbranding: 1, playsinline: 1 },
+        events: {
+          onReady: function(e) { if (pendingVideoId) { e.target.loadVideoById(pendingVideoId); pendingVideoId = null; } },
+          onStateChange: function(e) {
+            if (e.data === YT.PlayerState.ENDED) nextTrack();
+            if (e.data === YT.PlayerState.PLAYING) { document.getElementById('btnPlay').innerHTML = '&#9646;&#9646;'; startProgressPoll(); }
+            else { document.getElementById('btnPlay').innerHTML = '&#9654;'; }
+          }
         }
+      });
+    };
+    (function() { var tag = document.createElement('script'); tag.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(tag); })();
+
+    let currentPlaylist = null, currentTrackIdx = 0, isPlaying = false, progressInterval = null;
+
+    function playPlaylist(playlistId, startIdx) {
+      currentPlaylist = ASH_DATA.playlists.find(p => p.id === playlistId);
+      currentTrackIdx = startIdx || 0;
+      loadCurrentTrack();
+      document.querySelectorAll('.playlist-card').forEach(c => c.classList.toggle('playing', c.dataset.id === playlistId));
+      updateTrackHighlight();
+    }
+    function loadCurrentTrack() {
+      if (!currentPlaylist) return;
+      const track = currentPlaylist.tracks[currentTrackIdx];
+      if (!track) return;
+      document.getElementById('playerTrack').textContent = track.title;
+      document.getElementById('playerArtist').textContent = track.artist;
+      document.getElementById('playerPlaylist').textContent = currentPlaylist.title;
+      document.getElementById('playerThumb').textContent = currentPlaylist.icon;
+      document.getElementById('yt-player-wrap').classList.add('visible');
+      if (track.ytId) {
+        if (!ytReady || !ytPlayer) { pendingVideoId = track.ytId; return; }
+        ytPlayer.loadVideoById(track.ytId);
+        isPlaying = true;
+      } else {
+        if (!ytReady || !ytPlayer) return;
+        try { ytPlayer.cuePlaylist({ listType: 'search', list: track.ytSearch, index: 0 }); ytPlayer.playVideo(); }
+        catch(e) {}
+        isPlaying = true;
       }
+      updateTrackHighlight();
     }
-  });
-};
-
-// Load YouTube API
-(function() {
-  var tag = document.createElement('script');
-  tag.src = 'https://www.youtube.com/iframe_api';
-  document.head.appendChild(tag);
-})();
-
-// ── PLAYER STATE ────────────────────────────────────────────────────────────
-let currentPlaylist = null;
-let currentTrackIdx = 0;
-let isPlaying = false;
-let progressInterval = null;
-
-function playPlaylist(playlistId, startIdx) {
-  currentPlaylist = ASH_DATA.playlists.find(p => p.id === playlistId);
-  currentTrackIdx = startIdx || 0;
-  loadCurrentTrack();
-  document.querySelectorAll('.playlist-card').forEach(c => {
-    c.classList.toggle('playing', c.dataset.id === playlistId);
-  });
-  // Update track highlight in detail view
-  updateTrackHighlight();
-}
-
-function loadCurrentTrack() {
-  if (!currentPlaylist) return;
-  const track = currentPlaylist.tracks[currentTrackIdx];
-  if (!track) return;
-
-  document.getElementById('playerTrack').textContent = track.title;
-  document.getElementById('playerArtist').textContent = track.artist;
-  document.getElementById('playerPlaylist').textContent = currentPlaylist.title;
-  document.getElementById('playerThumb').textContent = currentPlaylist.icon;
-  document.getElementById('yt-player-wrap').classList.add('visible');
-
-  // Search YouTube for the track
-  searchAndPlay(track.ytSearch);
-}
-
-async function searchAndPlay(query) {
-  // Use YouTube's search via oEmbed as fallback, or direct search
-  // We use the YouTube search redirect approach — most reliable for embedded
-  const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
-  
-  // Try to get the first result video ID via a CORS-friendly approach
-  // We use a known-good strategy: embed as a search playlist
-  // For now, open YouTube search in a new tab as fallback, 
-  // and load the video once we have the ID from our curated data
-  
-  if (!ytReady || !ytPlayer) {
-    pendingVideoId = null;
-    // Show loading state
-    document.getElementById('playerTrack').innerHTML = 
-      '<span class="yt-loading"></span>' + (currentPlaylist.tracks[currentTrackIdx]?.title || '');
-    return;
-  }
-
-  // Load using cueVideoByUrl with search — YouTube handles resolution
-  try {
-    // Use YouTube search list via embed
-    ytPlayer.loadVideoByUrl(`https://www.youtube.com/v/?q=${encodeURIComponent(query)}&autoplay=1`);
-  } catch(e) {
-    // Fallback: use cueVideoById with a direct known search
-    ytPlayer.cuePlaylist({listType: 'search', list: query, index: 0});
-    ytPlayer.playVideo();
-  }
-  isPlaying = true;
-  updateTrackHighlight();
-}
-
-function playPause() {
-  if (!ytPlayer || !ytReady) return;
-  if (isPlaying) {
-    ytPlayer.pauseVideo();
-    isPlaying = false;
-  } else {
-    ytPlayer.playVideo();
-    isPlaying = true;
-  }
-}
-
-function prevTrack() {
-  if (!currentPlaylist) return;
-  currentTrackIdx = (currentTrackIdx - 1 + currentPlaylist.tracks.length) % currentPlaylist.tracks.length;
-  loadCurrentTrack();
-}
-
-function nextTrack() {
-  if (!currentPlaylist) return;
-  currentTrackIdx = (currentTrackIdx + 1) % currentPlaylist.tracks.length;
-  loadCurrentTrack();
-}
-
-function startProgressPoll() {
-  if (progressInterval) clearInterval(progressInterval);
-  progressInterval = setInterval(() => {
-    if (!ytPlayer || !isPlaying) return;
-    try {
-      const d = ytPlayer.getDuration();
-      const t = ytPlayer.getCurrentTime();
-      if (d > 0) {
-        document.getElementById('progressBar').style.width = ((t/d)*100) + '%';
-      }
-    } catch(e) {}
-  }, 1000);
-}
-
-function updateTrackHighlight() {
-  document.querySelectorAll('.track-row').forEach((row, i) => {
-    row.classList.toggle('active', i === currentTrackIdx);
-  });
-}
-
-document.getElementById('btnPlay').addEventListener('click', playPause);
-document.getElementById('btnPrev').addEventListener('click', prevTrack);
-document.getElementById('btnNext').addEventListener('click', nextTrack);
-
-// ── RENDER PLAYLISTS ────────────────────────────────────────────────────────
-function renderPlaylists(cat) {
-  const grid = document.getElementById('playlistGrid');
-  const playlists = cat === 'all' 
-    ? ASH_DATA.playlists 
-    : ASH_DATA.playlists.filter(p => p.category === cat);
-
-  grid.innerHTML = playlists.map(pl => `
-    <div class="playlist-card ${currentPlaylist?.id === pl.id ? 'playing' : ''}" 
-         data-id="${pl.id}" 
-         onclick="openDetail('${pl.id}')">
-      <div class="card-inner">
-        <span class="card-icon">${pl.icon}</span>
-        <div class="card-title">${pl.title}</div>
-        <div class="card-subtitle">${pl.subtitle}</div>
-        <div class="card-tracks-preview">
-          ${pl.tracks.slice(0, 3).map(t => `
-            <div class="card-track-line">
-              <strong>${t.title}</strong> — ${t.artist}
-            </div>
-          `).join('')}
-        </div>
-      </div>
-      <div class="card-footer">
-        <span class="card-count">${pl.tracks.length} titres</span>
-        <div style="display:flex;gap:6px;align-items:center;">
-          <button class="vlc-card-btn" onclick="event.stopPropagation(); exportM3U('${pl.id}')" title="Export VLC .m3u">▶ .m3u</button>
-          <button class="card-play-btn" onclick="event.stopPropagation(); playPlaylist('${pl.id}', 0)" title="Lancer la playlist">&#9654;</button>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
-// ── CATEGORY TABS ────────────────────────────────────────────────────────────
-document.getElementById('catTabs').addEventListener('click', e => {
-  const btn = e.target.closest('.cat-tab');
-  if (!btn) return;
-  document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderPlaylists(btn.dataset.cat);
-});
-
-// ── DETAIL VIEW ─────────────────────────────────────────────────────────────
-function openDetail(playlistId) {
-  const pl = ASH_DATA.playlists.find(p => p.id === playlistId);
-  if (!pl) return;
-  
-  const catLabel = ASH_DATA.categories.find(c => c.id === pl.category)?.label || pl.category;
-  
-  // Check if playlist has chapters (narrative)
-  const hasChapters = pl.tracks.some(t => t.chapter);
-  const hasEras = pl.tracks.some(t => t.era);
-  
-  let prevChapter = '';
-  let prevEra = '';
-  
-  const trackRows = pl.tracks.map((t, i) => {
-    let extra = '';
-    if (hasChapters && t.chapter && t.chapter !== prevChapter) {
-      prevChapter = t.chapter;
-      extra = `<div class="track-chapter">${t.chapter}</div>`;
+    function playPause() {
+      if (!ytPlayer || !ytReady) return;
+      if (isPlaying) { ytPlayer.pauseVideo(); isPlaying = false; }
+      else { ytPlayer.playVideo(); isPlaying = true; }
     }
-    if (hasEras && t.era && t.era !== prevEra) {
-      prevEra = t.era;
-      extra = `<div class="track-chapter">${t.era}</div>`;
+    function prevTrack() { if (!currentPlaylist) return; currentTrackIdx = (currentTrackIdx - 1 + currentPlaylist.tracks.length) % currentPlaylist.tracks.length; loadCurrentTrack(); }
+    function nextTrack() { if (!currentPlaylist) return; currentTrackIdx = (currentTrackIdx + 1) % currentPlaylist.tracks.length; loadCurrentTrack(); }
+    function startProgressPoll() {
+      if (progressInterval) clearInterval(progressInterval);
+      progressInterval = setInterval(() => {
+        if (!ytPlayer || !isPlaying) return;
+        try { const d = ytPlayer.getDuration(), t = ytPlayer.getCurrentTime(); if (d > 0) document.getElementById('progressBar').style.width = ((t/d)*100) + '%'; } catch(e) {}
+      }, 1000);
     }
-    return `
-      ${extra}
-      <div class="track-row ${currentPlaylist?.id === playlistId && currentTrackIdx === i ? 'active' : ''}" 
-           onclick="playPlaylist('${playlistId}', ${i}); updateTrackHighlight()">
-        <div class="track-num">${i+1}</div>
-        <div class="track-info">
-          <div class="track-name">${t.title}</div>
-          <div class="track-artist">${t.artist}</div>
-        </div>
-        <div class="track-album">${t.album}</div>
-        <div class="track-year">${t.year}</div>
-      </div>
-    `;
-  }).join('');
+    function updateTrackHighlight() { document.querySelectorAll('.track-row').forEach((row, i) => row.classList.toggle('active', i === currentTrackIdx)); }
+    document.getElementById('btnPlay').addEventListener('click', playPause);
+    document.getElementById('btnPrev').addEventListener('click', prevTrack);
+    document.getElementById('btnNext').addEventListener('click', nextTrack);
 
-  document.getElementById('detailContent').innerHTML = `
-    <div style="max-width:800px; margin: 0 auto;">
-      <div style="padding-bottom: 1.5rem;">
-        <button class="btn btn-back" onclick="closeDetail()">&#8592; Retour</button>
-      </div>
-      <div class="detail-header">
-        <div class="detail-icon-block">${pl.icon}</div>
-        <div class="detail-info">
-          <div class="detail-category">${catLabel}</div>
-          <div class="detail-title">${pl.title}</div>
-          <div class="detail-subtitle">${pl.subtitle}</div>
-          <div class="detail-mood">${pl.mood}</div>
-          <div class="detail-actions">
-            <button class="btn btn-primary" onclick="playPlaylist('${pl.id}', 0)">&#9654; Lancer</button>
-            <button class="btn btn-secondary" onclick="shufflePlay('${pl.id}')">⇌ Shuffle</button>
-            <button class="btn btn-vlc" onclick="exportM3U('${pl.id}')" title="Télécharger la playlist pour VLC desktop">
-              <span class="vlc-icon">▶</span> VLC Desktop
-            </button>
-            <button class="btn btn-vlc-ios" onclick="openInVLCiOS('${pl.id}')" title="Ouvrir le premier titre dans VLC iOS">
-              <span class="vlc-icon">▶</span> VLC iPhone
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="tracklist">
-        <div class="tracklist-header">
-          <span>#</span>
-          <span>Titre / Artiste</span>
-          <span>Album</span>
-          <span style="text-align:right">Année</span>
-        </div>
-        ${trackRows}
-      </div>
-    </div>
-  `;
-
-  document.getElementById('detailView').classList.add('open');
-  window.scrollTo(0, 0);
-}
-
-function closeDetail() {
-  document.getElementById('detailView').classList.remove('open');
-}
-
-function shufflePlay(playlistId) {
-  const pl = ASH_DATA.playlists.find(p => p.id === playlistId);
-  if (!pl) return;
-  // Shuffle the tracks order in memory for this session
-  const shuffled = [...pl.tracks].sort(() => Math.random() - 0.5);
-  const tempPl = { ...pl, tracks: shuffled };
-  currentPlaylist = tempPl;
-  currentTrackIdx = 0;
-  loadCurrentTrack();
-  closeDetail();
-}
-
-// ── RENDER ARTISTS ──────────────────────────────────────────────────────────
-function renderArtists() {
-  const grid = document.getElementById('artistsGrid');
-  const artistColors = {
-    holden: '#8b1a1a',
-    marciano: '#b8960c',
-    ka: '#4a6741',
-    stylesp: '#2a4a6b'
-  };
-  
-  grid.innerHTML = Object.entries(ASH_DATA.artists).map(([id, artist]) => `
-    <div class="artist-card" 
-         style="border-top-color: ${artistColors[id]};"
-         onclick="scrollToDiscoSection('${id}')">
-      <div class="artist-name">${artist.name}</div>
-      <div class="artist-origin" style="color: ${artistColors[id]}">${artist.origin}</div>
-      <div class="artist-years">${artist.years}</div>
-      <div class="artist-bio">${artist.bio}</div>
-      <div class="artist-albums-count">${artist.albums.length} sorties cataloguées</div>
-    </div>
-  `).join('');
-}
-
-// ── RENDER DISCOGRAPHIES ─────────────────────────────────────────────────────
-function renderDiscographies() {
-  const container = document.getElementById('discoContainer');
-  const artistColors = {
-    holden: '#8b1a1a',
-    marciano: '#b8960c',
-    ka: '#4a6741',
-    stylesp: '#2a4a6b'
-  };
-
-  container.innerHTML = Object.entries(ASH_DATA.artists).map(([id, artist]) => `
-    <div id="disco-${id}" style="margin-bottom: 3rem;">
-      <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--blanc); 
-                 margin-bottom: 0.25rem; border-left: 3px solid ${artistColors[id]}; 
-                 padding-left: 1rem; letter-spacing: 0.05em; font-weight: 400;">
-        ${artist.name}
-      </h3>
-      <div style="font-family: 'Rajdhani', sans-serif; font-size: 0.68rem; 
-                  letter-spacing: 0.15em; text-transform: uppercase; 
-                  color: ${artistColors[id]}; padding-left: 1.25rem; margin-bottom: 1.25rem;">
-        ${artist.origin} · ${artist.years}
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.6rem;">
-        ${artist.albums.map(album => `
-          <div style="background: var(--noir2); border: 1px solid rgba(255,255,255,0.05); 
-                      padding: 0.75rem 1rem; border-left: 2px solid ${album.type === 'LP' ? artistColors[id] : 'rgba(255,255,255,0.1)'};">
-            <div style="font-family: 'Rajdhani', sans-serif; font-size: 0.85rem; 
-                        font-weight: 600; color: var(--blanc2); margin-bottom: 0.2rem;">
-              ${album.title}
-            </div>
-            <div style="font-family: 'Rajdhani', sans-serif; font-size: 0.65rem; 
-                        letter-spacing: 0.1em; text-transform: uppercase; color: var(--acier);">
-              ${album.year}
-              ${album.type !== 'LP' ? ` · <span style="color: var(--acier2);">${album.type}</span>` : ''}
-              ${album.feat ? ` · feat. ${album.feat}` : ''}
+    function renderPlaylists(cat) {
+      const grid = document.getElementById('playlistGrid');
+      const playlists = cat === 'all' ? ASH_DATA.playlists : ASH_DATA.playlists.filter(p => p.category === cat);
+      grid.innerHTML = playlists.map(pl => `
+        <div class="playlist-card ${currentPlaylist?.id === pl.id ? 'playing' : ''}" data-id="${pl.id}" onclick="openDetail('${pl.id}')">
+          <div class="card-inner">
+            <span class="card-icon">${pl.icon}</span>
+            <div class="card-title">${pl.title}</div>
+            <div class="card-subtitle">${pl.subtitle}</div>
+            <div class="card-tracks-preview">
+              ${pl.tracks.slice(0,3).map(t => `<div class="card-track-line"><strong>${t.title}</strong> — ${t.artist}</div>`).join('')}
             </div>
           </div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
-}
+          <div class="card-footer">
+            <span class="card-count">${pl.tracks.length} titres</span>
+            <div style="display:flex;gap:6px;align-items:center;">
+              <button class="vlc-card-btn" onclick="event.stopPropagation(); exportM3U('${pl.id}')" title="Export VLC .m3u">▶ .m3u</button>
+              <button class="card-play-btn" onclick="event.stopPropagation(); playPlaylist('${pl.id}', 0)" title="Lancer">&#9654;</button>
+            </div>
+          </div>
+        </div>`).join('');
+    }
+    document.getElementById('catTabs').addEventListener('click', e => {
+      const btn = e.target.closest('.cat-tab'); if (!btn) return;
+      document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active'); renderPlaylists(btn.dataset.cat);
+    });
 
-function scrollToDiscoSection(id) {
-  document.getElementById('discographies').scrollIntoView({ behavior: 'smooth' });
-  setTimeout(() => {
-    const el = document.getElementById('disco-' + id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 400);
-}
+    function openDetail(playlistId) {
+      const pl = ASH_DATA.playlists.find(p => p.id === playlistId); if (!pl) return;
+      const catLabel = ASH_DATA.categories.find(c => c.id === pl.category)?.label || pl.category;
+      const hasChapters = pl.tracks.some(t => t.chapter), hasEras = pl.tracks.some(t => t.era);
+      let prevChapter = '', prevEra = '';
+      const trackRows = pl.tracks.map((t, i) => {
+        let extra = '';
+        if (hasChapters && t.chapter && t.chapter !== prevChapter) { prevChapter = t.chapter; extra = `<div class="track-chapter">${t.chapter}</div>`; }
+        if (hasEras && t.era && t.era !== prevEra) { prevEra = t.era; extra = `<div class="track-chapter">${t.era}</div>`; }
+        return `${extra}<div class="track-row ${currentPlaylist?.id === playlistId && currentTrackIdx === i ? 'active' : ''}" onclick="playPlaylist('${playlistId}', ${i}); updateTrackHighlight()">
+          <div class="track-num">${i+1}</div>
+          <div class="track-info"><div class="track-name">${t.title}</div><div class="track-artist">${t.artist}</div></div>
+          <div class="track-album">${t.album}</div><div class="track-year">${t.year}</div>
+        </div>`;
+      }).join('');
+      document.getElementById('detailContent').innerHTML = `
+        <div style="max-width:800px;margin:0 auto;">
+          <div style="padding-bottom:1.5rem;"><button class="btn btn-back" onclick="closeDetail()">&#8592; Retour</button></div>
+          <div class="detail-header">
+            <div class="detail-icon-block">${pl.icon}</div>
+            <div class="detail-info">
+              <div class="detail-category">${catLabel}</div>
+              <div class="detail-title">${pl.title}</div>
+              <div class="detail-subtitle">${pl.subtitle}</div>
+              <div class="detail-mood">${pl.mood}</div>
+              <div class="detail-actions">
+                <button class="btn btn-primary" onclick="playPlaylist('${pl.id}', 0)">&#9654; Lancer</button>
+                <button class="btn btn-secondary" onclick="shufflePlay('${pl.id}')">⇌ Shuffle</button>
+                <button class="btn btn-vlc" onclick="exportM3U('${pl.id}')"><span class="vlc-icon">▶</span> VLC Desktop</button>
+                <button class="btn btn-vlc-ios" onclick="openInVLCiOS('${pl.id}')"><span class="vlc-icon">▶</span> VLC iPhone</button>
+              </div>
+            </div>
+          </div>
+          <div class="tracklist">
+            <div class="tracklist-header"><span>#</span><span>Titre / Artiste</span><span>Album</span><span style="text-align:right">Année</span></div>
+            ${trackRows}
+          </div>
+        </div>`;
+      document.getElementById('detailView').classList.add('open');
+      window.scrollTo(0, 0);
+    }
+    function closeDetail() { document.getElementById('detailView').classList.remove('open'); }
+    function shufflePlay(playlistId) {
+      const pl = ASH_DATA.playlists.find(p => p.id === playlistId); if (!pl) return;
+      currentPlaylist = { ...pl, tracks: [...pl.tracks].sort(() => Math.random() - 0.5) };
+      currentTrackIdx = 0; loadCurrentTrack(); closeDetail();
+    }
 
-// ── VLC INTEGRATION ──────────────────────────────────────────────────────────
+    function renderArtists() {
+      const grid = document.getElementById('artistsGrid');
+      const artistColors = { holden: '#8b1a1a', marciano: '#b8960c', ka: '#4a6741', stylesp: '#2a4a6b' };
+      grid.innerHTML = Object.entries(ASH_DATA.artists).map(([id, artist]) => `
+        <div class="artist-card" style="border-top-color:${artistColors[id]};" onclick="scrollToDiscoSection('${id}')">
+          <div class="artist-name">${artist.name}</div>
+          <div class="artist-origin" style="color:${artistColors[id]}">${artist.origin}</div>
+          <div class="artist-years">${artist.years}</div>
+          <div class="artist-bio">${artist.bio}</div>
+          <div class="artist-albums-count">${artist.albums.length} sorties cataloguées</div>
+        </div>`).join('');
+    }
 
-// Builds a YouTube search URL from a track's ytSearch query
-function ytSearchURL(ytSearch) {
-  return `https://www.youtube.com/results?search_query=${encodeURIComponent(ytSearch)}`;
-}
+    function renderDiscographies() {
+      const container = document.getElementById('discoContainer');
+      const artistColors = { holden: '#8b1a1a', marciano: '#b8960c', ka: '#4a6741', stylesp: '#2a4a6b' };
+      container.innerHTML = Object.entries(ASH_DATA.artists).map(([id, artist]) => `
+        <div id="disco-${id}" style="margin-bottom:3rem;">
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--blanc);margin-bottom:0.25rem;border-left:3px solid ${artistColors[id]};padding-left:1rem;letter-spacing:0.05em;font-weight:400;">${artist.name}</h3>
+          <div style="font-family:'Rajdhani',sans-serif;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:${artistColors[id]};padding-left:1.25rem;margin-bottom:1.25rem;">${artist.origin} · ${artist.years}</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.6rem;">
+            ${artist.albums.map(album => `
+              <div style="background:var(--noir2);border:1px solid rgba(255,255,255,0.05);padding:0.75rem 1rem;border-left:2px solid ${album.type === 'LP' ? artistColors[id] : 'rgba(255,255,255,0.1)'};">
+                <div style="font-family:'Rajdhani',sans-serif;font-size:0.85rem;font-weight:600;color:var(--blanc2);margin-bottom:0.2rem;">${album.title}</div>
+                <div style="font-family:'Rajdhani',sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--acier);">
+                  ${album.year}${album.type !== 'LP' ? ` · <span style="color:var(--acier2);">${album.type}</span>` : ''}${album.feat ? ` · feat. ${album.feat}` : ''}
+                </div>
+              </div>`).join('')}
+          </div>
+        </div>`).join('');
+    }
 
-// Builds a direct YouTube search that VLC can open via yt-dlp
-// VLC desktop with yt-dlp reads: ytsearch:query
-function ytVLCSearch(ytSearch) {
-  return `ytsearch:${ytSearch}`;
-}
+    function scrollToDiscoSection(id) {
+      document.getElementById('discographies').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => { const el = document.getElementById('disco-' + id); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 400);
+    }
 
-// ── EXPORT .M3U for VLC Desktop ──────────────────────────────────────────────
-// Generates a .m3u file with all tracks as YouTube search queries.
-// VLC desktop (with yt-dlp installed) resolves these to actual streams.
-function exportM3U(playlistId) {
-  const pl = ASH_DATA.playlists.find(p => p.id === playlistId);
-  if (!pl) return;
+    function exportM3U(playlistId) {
+      const pl = ASH_DATA.playlists.find(p => p.id === playlistId); if (!pl) return;
+      const lines = ['#EXTM3U', `#PLAYLIST:${pl.title}`, ''];
+      pl.tracks.forEach(t => {
+        lines.push(`#EXTINF:-1,${t.artist} - ${t.title}`, `#EXTVLCOPT:network-caching=1000`);
+        lines.push(t.ytId ? `https://www.youtube.com/watch?v=${t.ytId}` : `https://www.youtube.com/results?search_query=${encodeURIComponent(t.ytSearch)}`);
+        lines.push('');
+      });
+      const blob = new Blob([lines.join('\n')], { type: 'audio/x-mpegurl' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = `ash-steel_${pl.id}.m3u`;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+      showVLCToast('M3U téléchargé — ouvre-le avec VLC desktop');
+    }
 
-  const lines = ['#EXTM3U', `#PLAYLIST:${pl.title}`, ''];
+    function openInVLCiOS(playlistId) {
+      const pl = ASH_DATA.playlists.find(p => p.id === playlistId); if (!pl) return;
+      showVLCiOSPanel(pl, !/iPhone|iPad|iPod/i.test(navigator.userAgent));
+    }
+    function showVLCiOSPanel(pl, isDesktop) {
+      const existing = document.getElementById('vlc-panel'); if (existing) existing.remove();
+      const trackLinks = pl.tracks.map((t, i) => {
+        const ytURL = t.ytId ? `https://www.youtube.com/watch?v=${t.ytId}` : `https://www.youtube.com/results?search_query=${encodeURIComponent(t.ytSearch)}`;
+        const vlcURL = `vlc://${ytURL.replace('https://', '')}`;
+        return `<div class="vlc-track-row"><span class="vlc-track-num">${i+1}</span><div class="vlc-track-info"><div class="vlc-track-name">${t.title}</div><div class="vlc-track-artist">${t.artist}</div></div><a class="vlc-open-btn" href="${vlcURL}">▶</a></div>`;
+      }).join('');
+      const panel = document.createElement('div'); panel.id = 'vlc-panel';
+      panel.innerHTML = `<div class="vlc-panel-overlay" onclick="closeVLCPanel()"></div><div class="vlc-panel-inner"><div class="vlc-panel-header"><div class="vlc-panel-title"><span class="vlc-logo">▶</span> VLC iPhone — ${pl.title}</div><button class="vlc-panel-close" onclick="closeVLCPanel()">✕</button></div><div class="vlc-panel-note">${isDesktop ? 'Ouvre cette page sur ton iPhone pour utiliser les liens VLC directement.' : 'Tape sur ▶ pour ouvrir le titre dans VLC.'}</div><div class="vlc-tracklist">${trackLinks}</div><div class="vlc-panel-footer"><button class="btn btn-vlc" onclick="exportM3U('${pl.id}'); closeVLCPanel()">Télécharger .m3u pour VLC Desktop</button></div></div>`;
+      document.body.appendChild(panel);
+      requestAnimationFrame(() => panel.querySelector('.vlc-panel-inner').classList.add('open'));
+    }
+    function closeVLCPanel() { const panel = document.getElementById('vlc-panel'); if (panel) { panel.querySelector('.vlc-panel-inner').classList.remove('open'); setTimeout(() => panel.remove(), 300); } }
+    function showVLCToast(msg) {
+      const existing = document.getElementById('vlc-toast'); if (existing) existing.remove();
+      const toast = document.createElement('div'); toast.id = 'vlc-toast'; toast.textContent = msg;
+      document.body.appendChild(toast);
+      requestAnimationFrame(() => toast.classList.add('show'));
+      setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 400); }, 3000);
+    }
 
-  pl.tracks.forEach((t, i) => {
-    // #EXTINF: duration (-1 = unknown), Artist - Title
-    lines.push(`#EXTINF:-1,${t.artist} - ${t.title}`);
-    lines.push(`#EXTVLCOPT:network-caching=1000`);
-    // YouTube search URL — VLC desktop with yt-dlp resolves this
-    lines.push(`https://www.youtube.com/results?search_query=${encodeURIComponent(t.ytSearch)}`);
-    lines.push('');
-  });
+    renderPlaylists('all'); renderArtists(); renderDiscographies();
+  </script>
+  <script src="https://www.youtube.com/iframe_api" defer></script>
 
-  const content = lines.join('\n');
-  const blob = new Blob([content], { type: 'audio/x-mpegurl' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `ash-steel_${pl.id}.m3u`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-
-  showVLCToast('M3U téléchargé — ouvre-le avec VLC desktop');
-}
-
-// ── VLC iOS DEEPLINK ─────────────────────────────────────────────────────────
-// vlc:// protocol opens VLC iOS directly with a URL.
-// We send the full YouTube search URL — VLC iOS handles resolution.
-// Shows a modal with all tracks as vlc:// links so user can tap each one.
-function openInVLCiOS(playlistId) {
-  const pl = ASH_DATA.playlists.find(p => p.id === playlistId);
-  if (!pl) return;
-
-  // Detect if we're on iOS
-  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-  if (isIOS) {
-    // On iPhone: show the VLC iOS panel with tappable track links
-    showVLCiOSPanel(pl);
-  } else {
-    // On desktop: show instructions + QR-style link list
-    showVLCiOSPanel(pl, true);
-  }
-}
-
-function showVLCiOSPanel(pl, isDesktop) {
-  const existing = document.getElementById('vlc-panel');
-  if (existing) existing.remove();
-
-  const trackLinks = pl.tracks.map((t, i) => {
-    const ytURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(t.ytSearch)}`;
-    const vlcURL = `vlc://${ytURL.replace('https://', '')}`;
-    return `
-      <div class="vlc-track-row">
-        <span class="vlc-track-num">${i+1}</span>
-        <div class="vlc-track-info">
-          <div class="vlc-track-name">${t.title}</div>
-          <div class="vlc-track-artist">${t.artist}</div>
-        </div>
-        <a class="vlc-open-btn" href="${vlcURL}" title="Ouvrir dans VLC iOS">▶</a>
-      </div>
-    `;
-  }).join('');
-
-  const panel = document.createElement('div');
-  panel.id = 'vlc-panel';
-  panel.innerHTML = `
-    <div class="vlc-panel-overlay" onclick="closeVLCPanel()"></div>
-    <div class="vlc-panel-inner">
-      <div class="vlc-panel-header">
-        <div class="vlc-panel-title">
-          <span class="vlc-logo">▶</span>
-          VLC iPhone — ${pl.title}
-        </div>
-        <button class="vlc-panel-close" onclick="closeVLCPanel()">✕</button>
-      </div>
-      <div class="vlc-panel-note">
-        ${isDesktop 
-          ? 'Ouvre cette page sur ton iPhone pour utiliser les liens VLC directement.'
-          : 'Tape sur ▶ pour ouvrir le titre dans VLC. VLC doit être installé sur ton iPhone.'
-        }
-      </div>
-      <div class="vlc-tracklist">
-        ${trackLinks}
-      </div>
-      <div class="vlc-panel-footer">
-        <button class="btn btn-vlc" onclick="exportM3U('${pl.id}'); closeVLCPanel()">
-          Télécharger .m3u pour VLC Desktop
-        </button>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(panel);
-  requestAnimationFrame(() => panel.querySelector('.vlc-panel-inner').classList.add('open'));
-}
-
-function closeVLCPanel() {
-  const panel = document.getElementById('vlc-panel');
-  if (panel) {
-    panel.querySelector('.vlc-panel-inner').classList.remove('open');
-    setTimeout(() => panel.remove(), 300);
-  }
-}
-
-// ── VLC TOAST ────────────────────────────────────────────────────────────────
-function showVLCToast(msg) {
-  const existing = document.getElementById('vlc-toast');
-  if (existing) existing.remove();
-  const toast = document.createElement('div');
-  toast.id = 'vlc-toast';
-  toast.textContent = msg;
-  document.body.appendChild(toast);
-  requestAnimationFrame(() => toast.classList.add('show'));
-  setTimeout(() => {
-    toast.classList.remove('show');
-    setTimeout(() => toast.remove(), 400);
-  }, 3000);
-}
-
-// ── INIT ─────────────────────────────────────────────────────────────────────
-renderPlaylists('all');
-renderArtists();
-renderDiscographies();
-</script>
-
-<script src="https://www.youtube.com/iframe_api" defer></script>
+  <!-- PWA Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/ash-and-steel/sw.js', { scope: '/ash-and-steel/' })
+          .then(reg => console.log('SW OK:', reg.scope))
+          .catch(err => console.log('SW erreur:', err));
+      });
+    }
+  </script>
 </body>
 </html>
