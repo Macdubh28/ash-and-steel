@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ka — Brownsville, Brooklyn. Le minimaliste absolu. 1972–2024.">
+  <title>KA — ASH & STEEL</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ASH&STEEL">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <style>
+    /* Styles spécifiques aux pages artistes */
+    .artist-page-hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .artist-page-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #4a6741;
+      margin-bottom: 1rem;
+    }
+    .artist-page-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 12vw, 8rem);
+      line-height: 0.9;
+      color: var(--blanc);
+      letter-spacing: 0.05em;
+      margin: 0 0 1.5rem;
+    }
+    .artist-page-meta {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acier);
+    }
+    .artist-page-meta span.accent { color: #4a6741; }
+    .artist-page-tagline {
+      font-family: 'Rajdhani', sans-serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--blanc2);
+      max-width: 640px;
+      margin: 1.5rem auto 0;
+      line-height: 1.5;
+    }
+    .artist-page-section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    .artist-page-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--blanc);
+      letter-spacing: 0.1em;
+      font-weight: 400;
+      margin: 0 0 1.5rem;
+      border-left: 3px solid #4a6741;
+      padding-left: 1rem;
+    }
+    .artist-bio-long p {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--blanc2);
+      margin-bottom: 1.5rem;
+    }
+    .artist-quote {
+      border-left: 3px solid #4a6741;
+      padding: 1.5rem 1.5rem 1.5rem 2rem;
+      margin: 2rem 0;
+      background: var(--noir2);
+    }
+    .artist-quote-text {
+      font-family: 'Rajdhani', sans-serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: var(--blanc);
+      margin-bottom: 0.75rem;
+    }
+    .artist-quote-source {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #4a6741;
+    }
+    .artist-why {
+      background: var(--noir2);
+      border: 1px solid rgba(74,103,65,0.2);
+      padding: 1.75rem;
+      margin: 2rem 0;
+    }
+    .artist-why p {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--blanc2);
+      margin: 0;
+    }
+    .memorial {
+      max-width: 780px;
+      margin: 2rem auto;
+      padding: 2.5rem 1.75rem;
+      border: 1px solid #4a6741;
+      background: linear-gradient(180deg, rgba(74,103,65,0.08) 0%, rgba(10,10,10,0) 100%);
+      text-align: center;
+    }
+    .memorial-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #4a6741;
+      margin-bottom: 0.75rem;
+    }
+    .memorial-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--blanc);
+      letter-spacing: 0.08em;
+      margin-bottom: 2rem;
+    }
+    .memorial-text {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--blanc2);
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .memorial-tribute {
+      font-family: 'Rajdhani', sans-serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--blanc);
+      line-height: 1.5;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .memorial-tribute-source {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acier);
+    }
+    .memorial-closing {
+      margin-top: 2rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #4a6741;
+    }
+    .artist-playlists-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 0.8rem;
+    }
+    .artist-disco-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.6rem;
+    }
+    .btn-back-home {
+      display: inline-block;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acier);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.2s;
+    }
+    .btn-back-home:hover {
+      color: var(--blanc);
+      border-color: #4a6741;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo"><a href="index.html" style="color:inherit;text-decoration:none;">ASH<span>&</span>STEEL</a></div>
+    <ul class="nav-links">
+      <li><a href="index.html#playlists">Playlists</a></li>
+      <li><a href="index.html#artistes" class="active">Artistes</a></li>
+      <li><a href="index.html#discographies">Discographies</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO ARTISTE -->
+  <header class="artist-page-hero">
+    <div style="margin-bottom:1.5rem;"><a href="index.html" class="btn-back-home">← Retour accueil</a></div>
+    <div class="artist-page-eyebrow" id="artistEyebrow">Chargement…</div>
+    <h1 class="artist-page-name" id="artistName">KA</h1>
+    <div class="artist-page-meta" id="artistMeta"></div>
+    <div class="artist-page-tagline" id="artistTagline"></div>
+  </header>
+
+  <!-- BIO LONGUE -->
+  <section class="artist-page-section">
+    <h2>Biographie</h2>
+    <div class="artist-bio-long" id="artistBioLong"></div>
+  </section>
+
+  <!-- CITATION -->
+  <section class="artist-page-section" style="padding-top:0;">
+    <div class="artist-quote">
+      <div class="artist-quote-text" id="artistQuote"></div>
+      <div class="artist-quote-source" id="artistQuoteSource"></div>
+    </div>
+  </section>
+
+  <!-- POURQUOI ICI -->
+  <section class="artist-page-section" style="padding-top:0;">
+    <h2>Pourquoi dans ASH & STEEL</h2>
+    <div class="artist-why"><p id="artistWhy"></p></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PLAYLISTS LIÉES -->
+  <section class="artist-page-section">
+    <h2>Playlists dédiées</h2>
+    <div class="artist-playlists-grid" id="artistPlaylists"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DISCOGRAPHIE -->
+  <section class="artist-page-section">
+    <h2>Discographie</h2>
+    <div class="artist-disco-grid" id="artistDisco"></div>
+  </section>
+
+  <!-- MÉMORIAL -->
+  <section class="artist-page-section">
+    <div class="memorial">
+      <div class="memorial-label">In Memoriam</div>
+      <div class="memorial-name">Kaseem Ryan · 1972 — 2024</div>
+      <div class="memorial-text" id="memorialText"></div>
+      <div class="memorial-tribute" id="memorialTribute"></div>
+      <div class="memorial-tribute-source" id="memorialTributeSource"></div>
+      <div class="memorial-closing">Repose en honneur, capitaine.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">ASH<span>&</span>STEEL</div>
+    <div class="footer-note">Streaming via YouTube · macdubh28.github.io/ash-and-steel</div>
+  </footer>
+
+  <!-- YOUTUBE MINI PLAYER (identique à l'index) -->
+  <div id="yt-player-wrap">
+    <div class="player-progress"><div class="player-progress-bar" id="progressBar"></div></div>
+    <div id="yt-player-frame"></div>
+    <div class="player-thumb" id="playerThumb">◆</div>
+    <div class="player-info">
+      <div class="player-track" id="playerTrack">–</div>
+      <div class="player-artist" id="playerArtist">Sélectionner une playlist</div>
+    </div>
+    <div class="player-playlist" id="playerPlaylist">–</div>
+    <div class="player-controls">
+      <button class="player-btn" id="btnPrev" title="Précédent">&#9664;&#9664;</button>
+      <button class="player-btn main" id="btnPlay" title="Lecture / Pause">&#9654;</button>
+      <button class="player-btn" id="btnNext" title="Suivant">&#9654;&#9654;</button>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    const ARTIST_ID = 'ka';
+    const artist = ASH_DATA.artists[ARTIST_ID];
+    const accentColor = '#4a6741';
+
+    // Remplissage du hero
+    document.getElementById('artistEyebrow').textContent = artist.origin + ' · ' + artist.years;
+    document.getElementById('artistName').textContent = artist.name.toUpperCase();
+    document.getElementById('artistMeta').innerHTML = '<span class="accent">' + artist.origin + '</span> &nbsp;·&nbsp; ' + artist.years;
+    document.getElementById('artistTagline').textContent = artist.bio;
+
+    // Bio longue avec vrais paragraphes
+    const bioHTML = artist.bioLong.split('\n\n').map(p => '<p>' + p + '</p>').join('');
+    document.getElementById('artistBioLong').innerHTML = bioHTML;
+
+    // Citation
+    document.getElementById('artistQuote').textContent = '« ' + artist.quote + ' »';
+    document.getElementById('artistQuoteSource').textContent = '— ' + artist.quoteSource;
+
+    // Pourquoi ici
+    document.getElementById('artistWhy').textContent = artist.whyHere;
+
+    // Mémorial (uniquement pour Ka)
+    if (artist.memorial) {
+      document.getElementById('memorialText').textContent = artist.memorial;
+      document.getElementById('memorialTribute').textContent = '« ' + artist.memorialTribute + ' »';
+      document.getElementById('memorialTributeSource').textContent = '— ' + artist.memorialTributeSource;
+    }
+
+    // Playlists liées : on filtre celles où Ka apparaît
+    const relatedPlaylists = ASH_DATA.playlists.filter(pl =>
+      pl.tracks.some(t => t.artist && t.artist.toLowerCase().includes('ka')) &&
+      (pl.id.toLowerCase().includes('ka') || pl.tracks.filter(t => t.artist && t.artist.toLowerCase() === 'ka').length >= 2)
+    );
+    const playlistsContainer = document.getElementById('artistPlaylists');
+    if (relatedPlaylists.length === 0) {
+      playlistsContainer.innerHTML = '<div style="color:var(--acier);font-family:\'Rajdhani\',sans-serif;font-size:0.9rem;">Ka apparaît dans plusieurs playlists transversales. Voir la section Playlists sur l\'accueil.</div>';
+    } else {
+      playlistsContainer.innerHTML = relatedPlaylists.map(pl => `
+        <a href="index.html#playlists" style="text-decoration:none;">
+          <div class="playlist-card" data-id="${pl.id}" style="cursor:pointer;">
+            <div class="card-inner">
+              <span class="card-icon">${pl.icon}</span>
+              <div class="card-title">${pl.title}</div>
+              <div class="card-subtitle">${pl.subtitle}</div>
+            </div>
+            <div class="card-footer">
+              <span class="card-count">${pl.tracks.length} titres</span>
+            </div>
+          </div>
+        </a>`).join('');
+    }
+
+    // Discographie
+    document.getElementById('artistDisco').innerHTML = artist.albums.map(album => `
+      <div style="background:var(--noir2);border:1px solid rgba(255,255,255,0.05);padding:0.75rem 1rem;border-left:2px solid ${album.type === 'LP' ? accentColor : 'rgba(255,255,255,0.1)'};">
+        <div style="font-family:'Rajdhani',sans-serif;font-size:0.85rem;font-weight:600;color:var(--blanc2);margin-bottom:0.2rem;">${album.title}</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--acier);">
+          ${album.year}${album.type !== 'LP' ? ` · <span style="color:var(--acier2);">${album.type}</span>` : ''}${album.feat ? ` · feat. ${album.feat}` : ''}
+        </div>
+      </div>`).join('');
+  </script>
+
+  <!-- PWA Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/ash-and-steel/sw.js', { scope: '/ash-and-steel/' })
+          .then(reg => console.log('SW OK:', reg.scope))
+          .catch(err => console.log('SW erreur:', err));
+      });
+    }
+  </script>
+</body>
+</html>
