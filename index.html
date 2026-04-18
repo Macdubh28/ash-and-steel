@@ -251,14 +251,17 @@
     function renderArtists() {
       const grid = document.getElementById('artistsGrid');
       const artistColors = { holden: '#8b1a1a', marciano: '#b8960c', ka: '#4a6741', stylesp: '#2a4a6b' };
+      const artistPages = { holden: 'holden.html', marciano: 'marciano.html', ka: 'ka.html', stylesp: 'stylesp.html' };
       grid.innerHTML = Object.entries(ASH_DATA.artists).map(([id, artist]) => `
-        <div class="artist-card" style="border-top-color:${artistColors[id]};" onclick="scrollToDiscoSection('${id}')">
-          <div class="artist-name">${artist.name}</div>
-          <div class="artist-origin" style="color:${artistColors[id]}">${artist.origin}</div>
-          <div class="artist-years">${artist.years}</div>
-          <div class="artist-bio">${artist.bio}</div>
-          <div class="artist-albums-count">${artist.albums.length} sorties cataloguées</div>
-        </div>`).join('');
+        <a href="${artistPages[id]}" style="text-decoration:none;color:inherit;">
+          <div class="artist-card" style="border-top-color:${artistColors[id]};cursor:pointer;">
+            <div class="artist-name">${artist.name}</div>
+            <div class="artist-origin" style="color:${artistColors[id]}">${artist.origin}</div>
+            <div class="artist-years">${artist.years}</div>
+            <div class="artist-bio">${artist.bio}</div>
+            <div class="artist-albums-count">${artist.albums.length} sorties cataloguées &nbsp;·&nbsp; <span style="color:${artistColors[id]};">Voir la page →</span></div>
+          </div>
+        </a>`).join('');
     }
 
     function renderDiscographies() {
