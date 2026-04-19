@@ -135,16 +135,16 @@ const ASH_DATA = {
       mood: "Froide, introspective, cinématographique",
       icon: "◆",
       tracks: [
-        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Joe Frog" },
-        { artist: "Errol Holden", title: "Mont Blanc Penmanship", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Mont Blanc Penmanship" },
-        { artist: "Errol Holden", title: "Cashmere Kufis", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Cashmere Kufis" },
-        { artist: "Ka", title: "Mourn at Night", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Mourn at Night Honor Killed the Samurai" },
-        { artist: "Ka", title: "I've Been Here Before", album: "Grief Pedigree", year: 2012, ytSearch: "Ka I've Been Here Before Grief Pedigree" },
+        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Joe Frog", ytId: "wwLtUmaxRLw" },
+        { artist: "Errol Holden", title: "Mont Blanc Penmanship", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Mont Blanc Penmanship", ytId: "bzyPZvWtCN8" },
+        { artist: "Errol Holden", title: "Cashmere Kufis", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Cashmere Kufis", ytId: "0sX2aLU4hpQ" },
+        { artist: "Ka", title: "Mourn at Night", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Mourn at Night Honor Killed the Samurai", ytId: "22qF6Drbihg" },
+        { artist: "Ka", title: "I've Been Here Before", album: "Grief Pedigree", year: 2012, ytSearch: "Ka I've Been Here Before Grief Pedigree", ytId: "h4pSIupzFdA" },
         { artist: "Ka", title: "Wrapping Naked Wire", album: "Woeful Studies", year: 2022, ytSearch: "Ka Wrapping Naked Wire Woeful Studies" },
-        { artist: "Errol Holden", title: "Guantanamo Diaries", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Guantanamo Diaries" },
-        { artist: "Ka", title: "Seasons Change", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Seasons Change Night's Gambit" },
-        { artist: "Errol Holden & Roc Marciano", title: "visvim vandal", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Roc Marciano visvim vandal" },
-        { artist: "Ka", title: "Dust", album: "Descendants of Cain", year: 2020, ytSearch: "Ka Dust Descendants of Cain" }
+        { artist: "Errol Holden", title: "Guantanamo Diaries", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Guantanamo Diaries", ytId: "gZ8s3GCa054" },
+        { artist: "Ka", title: "Seasons Change", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Seasons Change Night's Gambit", ytId: "mN5ORMHDy5Y" },
+        { artist: "Errol Holden & Roc Marciano", title: "visvim vandal", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Roc Marciano visvim vandal", ytId: "Eir9WiqcJ9k" },
+        { artist: "Ka", title: "Dust", album: "Descendants of Cain", year: 2020, ytSearch: "Ka Dust Descendants of Cain", ytId: "RswTGeL9wd0" }
       ]
     },
 
@@ -156,16 +156,16 @@ const ASH_DATA = {
       mood: "Luxe discret, cinématographique, lent",
       icon: "◈",
       tracks: [
-        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Snow Marcberg" },
-        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, ytSearch: "Roc Marciano 76 Reloaded" },
-        { artist: "Roc Marciano", title: "Greneberg", album: "Marci Beaucoup", year: 2013, ytSearch: "Roc Marciano Greneberg" },
-        { artist: "Roc Marciano", title: "Yayo", album: "Marcielago", year: 2019, ytSearch: "Roc Marciano Yayo Marcielago" },
+        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Snow Marcberg", ytId: "AZSPs8oPYUk" },
+        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, ytSearch: "Roc Marciano 76 Reloaded", ytId: "CVm5b9TFi_Y" },
+        { artist: "Roc Marciano", title: "Greneberg", album: "Marci Beaucoup", year: 2013, ytSearch: "Roc Marciano Greneberg", ytId: "o1iOuybIkf0" },
+        { artist: "Roc Marciano", title: "Yayo", album: "Marcielago", year: 2019, ytSearch: "Roc Marciano Yayo Marcielago", ytId: "kiAJAU8rA14" },
         { artist: "Roc Marciano", title: "Cashmere Ropes", album: "RR2: The Bitter Dose", year: 2018, ytSearch: "Roc Marciano Cashmere Ropes RR2" },
-        { artist: "Errol Holden & Roc Marciano", title: "Rod Lavers with the Stussy Hoodie", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Rod Lavers Stussy Hoodie Roc Marciano" },
-        { artist: "Roc Marciano", title: "Raw Deal", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Raw Deal Rosebudd's Revenge" },
-        { artist: "Roc Marciano", title: "Pistol", album: "Behold a Dark Horse", year: 2018, ytSearch: "Roc Marciano Pistol Behold Dark Horse" },
-        { artist: "Errol Holden", title: "Pig Latin", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Pig Latin Supreme Magnetic" },
-        { artist: "Roc Marciano", title: "Jungle Fever", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Jungle Fever Marcberg" }
+        { artist: "Errol Holden & Roc Marciano", title: "Rod Lavers with the Stussy Hoodie", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Rod Lavers Stussy Hoodie Roc Marciano", ytId: "jVQVAJ2PgiU" },
+        { artist: "Roc Marciano", title: "Raw Deal", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Raw Deal Rosebudd's Revenge", ytId: "Glytqr0UdiY" },
+        { artist: "Roc Marciano", title: "Pistol", album: "Behold a Dark Horse", year: 2018, ytSearch: "Roc Marciano Pistol Behold Dark Horse", ytId: "3kj31RKZOLg" },
+        { artist: "Errol Holden", title: "Pig Latin", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Pig Latin Supreme Magnetic", ytId: "CIWcAyFnoY8" },
+        { artist: "Roc Marciano", title: "Jungle Fever", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Jungle Fever Marcberg", ytId: "hpar-be5JkE" }
       ]
     },
 
@@ -177,16 +177,16 @@ const ASH_DATA = {
       mood: "Énergie guerrière, motivation sombre",
       icon: "▲",
       tracks: [
-        { artist: "Styles P", title: "Good Times (I Get High)", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P Good Times I Get High" },
-        { artist: "Styles P", title: "The Life", album: "The Life / The Trouble Is...", year: 2016, ytSearch: "Styles P The Life" },
-        { artist: "Styles P", title: "Warrior", album: "Float", year: 2013, ytSearch: "Styles P Warrior Float" },
-        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts Honor Killed the Samurai" },
-        { artist: "Styles P", title: "Phantom and the Ghost", album: "Phantom and the Ghost", year: 2014, ytSearch: "Styles P Phantom and the Ghost" },
-        { artist: "Styles P", title: "Blow Your Mind", album: "G-Host", year: 2018, ytSearch: "Styles P Blow Your Mind G-Host" },
+        { artist: "Styles P", title: "Good Times (I Get High)", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P Good Times I Get High", ytId: "4fJZbBcDsRQ" },
+        { artist: "Styles P", title: "The Life", album: "The Life / The Trouble Is...", year: 2016, ytSearch: "Styles P The Life", ytId: "pfblnrUjysI" },
+        { artist: "Styles P", title: "Warrior", album: "Float", year: 2013, ytSearch: "Styles P Warrior Float", ytId: "QX2371V5ta4" },
+        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts Honor Killed the Samurai", ytId: "QvlF0dDs4Gw" },
+        { artist: "Styles P", title: "Phantom and the Ghost", album: "Phantom and the Ghost", year: 2014, ytSearch: "Styles P Phantom and the Ghost", ytId: "sIRQgPJQOrk" },
+        { artist: "Styles P", title: "Blow Your Mind", album: "G-Host", year: 2018, ytSearch: "Styles P Blow Your Mind G-Host", ytId: "R6imJp_CLac" },
         { artist: "Ka", title: "Solitary Refinement", album: "A Martyr's Reward", year: 2021, ytSearch: "Ka Solitary Refinement A Martyr's Reward" },
-        { artist: "Styles P", title: "We're Gonna Make It", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P We Gonna Make It" },
+        { artist: "Styles P", title: "We're Gonna Make It", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P We Gonna Make It", ytId: "p6TrQzNTrRA" },
         { artist: "Styles P & Ka", title: "The KA-BA feat. Styles P", album: "Woeful Studies", year: 2022, ytSearch: "Ka The KA-BA Styles P" },
-        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence album" }
+        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence album", ytId: "4py3XMbYdSE" }
       ]
     },
 
@@ -198,16 +198,16 @@ const ASH_DATA = {
       mood: "Nocturne, sombre, élégant, introspectif",
       icon: "◉",
       tracks: [
-        { artist: "Ka", title: "Mourn at Night", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Mourn at Night" },
-        { artist: "Roc Marciano", title: "Marci Enterprises", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Marci Enterprises" },
-        { artist: "Errol Holden", title: "Evelyn & North", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Evelyn North" },
-        { artist: "Ka", title: "Searching (For Something)", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Searching Night's Gambit" },
+        { artist: "Ka", title: "Mourn at Night", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Mourn at Night", ytId: "22qF6Drbihg" },
+        { artist: "Roc Marciano", title: "Marci Enterprises", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Marci Enterprises", ytId: "dACa3SqzE_U" },
+        { artist: "Errol Holden", title: "Evelyn & North", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Evelyn North", ytId: "DgrC0njnx4I" },
+        { artist: "Ka", title: "Searching (For Something)", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Searching Night's Gambit", ytId: "d1hDpufNXd0" },
         { artist: "Roc Marciano", title: "Waltz of the Clueless", album: "Marci Beaucoup", year: 2013, ytSearch: "Roc Marciano Waltz of the Clueless" },
-        { artist: "Styles P", title: "Ghost In The Building", album: "G-Host", year: 2018, ytSearch: "Styles P Ghost In The Building" },
-        { artist: "Errol Holden & Roc Marciano", title: "Perhaps in the Next", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Perhaps in the Next Roc Marciano" },
-        { artist: "Ka", title: "Peace Akhi", album: "Grief Pedigree", year: 2012, ytSearch: "Ka Peace Akhi Grief Pedigree" },
-        { artist: "Roc Marciano", title: "Remy Sings", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Remy Sings" },
-        { artist: "Styles P", title: "Time", album: "Styles David Ghost Your Enthusiasm", year: 2020, ytSearch: "Styles P Time Ghost Your Enthusiasm" }
+        { artist: "Styles P", title: "Ghost In The Building", album: "G-Host", year: 2018, ytSearch: "Styles P Ghost In The Building", ytId: "ksXJPcGuQ3s" },
+        { artist: "Errol Holden & Roc Marciano", title: "Perhaps in the Next", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Perhaps in the Next Roc Marciano", ytId: "qmdF9S2J62c" },
+        { artist: "Ka", title: "Peace Akhi", album: "Grief Pedigree", year: 2012, ytSearch: "Ka Peace Akhi Grief Pedigree", ytId: "OOTdy_vpFIA" },
+        { artist: "Roc Marciano", title: "Remy Sings", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Remy Sings", ytId: "gU23O0WP71g" },
+        { artist: "Styles P", title: "Time", album: "Styles David Ghost Your Enthusiasm", year: 2020, ytSearch: "Styles P Time Ghost Your Enthusiasm", ytId: "jysK2gSa_3Y" }
       ]
     },
 
@@ -220,16 +220,16 @@ const ASH_DATA = {
       mood: "Arc narratif, transformation",
       icon: "↑",
       tracks: [
-        { artist: "Roc Marciano", title: "Jungle Fever", album: "Marcberg", year: 2010, chapter: "I. La rue", ytSearch: "Roc Marciano Jungle Fever Marcberg" },
-        { artist: "Ka", title: "I've Been Here Before", album: "Grief Pedigree", year: 2012, chapter: "I. La rue", ytSearch: "Ka I've Been Here Before" },
-        { artist: "Styles P", title: "Good Times (I Get High)", album: "A Gangster and a Gentleman", year: 2002, chapter: "I. La rue", ytSearch: "Styles P Good Times I Get High" },
-        { artist: "Ka", title: "Mourn at Night", album: "Honor Killed the Samurai", year: 2016, chapter: "II. La prise de conscience", ytSearch: "Ka Mourn at Night" },
-        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, chapter: "II. La prise de conscience", ytSearch: "Errol Holden Joe Frog" },
-        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, chapter: "III. La discipline", ytSearch: "Ka Cold Facts Honor Killed the Samurai" },
-        { artist: "Styles P", title: "Warrior", album: "Float", year: 2013, chapter: "III. La discipline", ytSearch: "Styles P Warrior Float" },
-        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, chapter: "III. La discipline", ytSearch: "Roc Marciano Snow Marcberg" },
+        { artist: "Roc Marciano", title: "Jungle Fever", album: "Marcberg", year: 2010, chapter: "I. La rue", ytSearch: "Roc Marciano Jungle Fever Marcberg", ytId: "hpar-be5JkE" },
+        { artist: "Ka", title: "I've Been Here Before", album: "Grief Pedigree", year: 2012, chapter: "I. La rue", ytSearch: "Ka I've Been Here Before", ytId: "h4pSIupzFdA" },
+        { artist: "Styles P", title: "Good Times (I Get High)", album: "A Gangster and a Gentleman", year: 2002, chapter: "I. La rue", ytSearch: "Styles P Good Times I Get High", ytId: "4fJZbBcDsRQ" },
+        { artist: "Ka", title: "Mourn at Night", album: "Honor Killed the Samurai", year: 2016, chapter: "II. La prise de conscience", ytSearch: "Ka Mourn at Night", ytId: "22qF6Drbihg" },
+        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, chapter: "II. La prise de conscience", ytSearch: "Errol Holden Joe Frog", ytId: "wwLtUmaxRLw" },
+        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, chapter: "III. La discipline", ytSearch: "Ka Cold Facts Honor Killed the Samurai", ytId: "QvlF0dDs4Gw" },
+        { artist: "Styles P", title: "Warrior", album: "Float", year: 2013, chapter: "III. La discipline", ytSearch: "Styles P Warrior Float", ytId: "QX2371V5ta4" },
+        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, chapter: "III. La discipline", ytSearch: "Roc Marciano Snow Marcberg", ytId: "AZSPs8oPYUk" },
         { artist: "Ka", title: "Solitary Refinement", album: "A Martyr's Reward", year: 2021, chapter: "IV. L'élévation", ytSearch: "Ka Solitary Refinement" },
-        { artist: "Errol Holden", title: "Supreme Magnetic", album: "Supreme Magnetic", year: 2025, chapter: "IV. L'élévation", ytSearch: "Errol Holden Supreme Magnetic album" },
+        { artist: "Errol Holden", title: "Supreme Magnetic", album: "Supreme Magnetic", year: 2025, chapter: "IV. L'élévation", ytSearch: "Errol Holden Supreme Magnetic album", ytId: "Uo0jVKVBHtc" },
         { artist: "Ka", title: "Wrapping Naked Wire", album: "Woeful Studies", year: 2022, chapter: "IV. L'élévation", ytSearch: "Ka Wrapping Naked Wire" }
       ]
     },
@@ -242,16 +242,16 @@ const ASH_DATA = {
       mood: "Cinématographique, storytellers minimalistes",
       icon: "◫",
       tracks: [
-        { artist: "Ka", title: "Searching (For Something)", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Searching Night's Gambit" },
-        { artist: "Roc Marciano", title: "Marci Enterprises", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Marci Enterprises" },
-        { artist: "Errol Holden", title: "Guantanamo Diaries", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Guantanamo Diaries" },
-        { artist: "Ka", title: "The Package", album: "Woeful Studies", year: 2022, ytSearch: "Ka The Package Woeful Studies" },
+        { artist: "Ka", title: "Searching (For Something)", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Searching Night's Gambit", ytId: "d1hDpufNXd0" },
+        { artist: "Roc Marciano", title: "Marci Enterprises", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Marci Enterprises", ytId: "dACa3SqzE_U" },
+        { artist: "Errol Holden", title: "Guantanamo Diaries", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Guantanamo Diaries", ytId: "gZ8s3GCa054" },
+        { artist: "Ka", title: "The Package", album: "Woeful Studies", year: 2022, ytSearch: "Ka The Package Woeful Studies", ytId: "ZgAt9pHiqUQ" },
         { artist: "Roc Marciano", title: "Waltz of the Clueless", album: "Marci Beaucoup", year: 2013, ytSearch: "Roc Marciano Waltz of the Clueless" },
-        { artist: "Styles P", title: "Good Times (I Get High)", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P Good Times" },
-        { artist: "Errol Holden & Roc Marciano", title: "visvim vandal", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Roc Marciano visvim vandal" },
-        { artist: "Ka", title: "Decisions", album: "Languish Arts", year: 2022, ytSearch: "Ka Decisions Languish Arts" },
-        { artist: "Roc Marciano", title: "Raw Deal", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Raw Deal" },
-        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence" }
+        { artist: "Styles P", title: "Good Times (I Get High)", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P Good Times", ytId: "4fJZbBcDsRQ" },
+        { artist: "Errol Holden & Roc Marciano", title: "visvim vandal", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Roc Marciano visvim vandal", ytId: "Eir9WiqcJ9k" },
+        { artist: "Ka", title: "Decisions", album: "Languish Arts", year: 2022, ytSearch: "Ka Decisions Languish Arts", ytId: "0YaL0FPdceY" },
+        { artist: "Roc Marciano", title: "Raw Deal", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Raw Deal", ytId: "Glytqr0UdiY" },
+        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence", ytId: "4py3XMbYdSE" }
       ]
     },
 
@@ -263,16 +263,16 @@ const ASH_DATA = {
       mood: "Mature, lucide, transformationnel",
       icon: "→",
       tracks: [
-        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Joe Frog" },
-        { artist: "Ka", title: "Peace Akhi", album: "Grief Pedigree", year: 2012, ytSearch: "Ka Peace Akhi" },
-        { artist: "Styles P", title: "We're Gonna Make It", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P We Gonna Make It" },
-        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts" },
-        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Snow Marcberg" },
-        { artist: "Styles P", title: "Time", album: "Styles David Ghost Your Enthusiasm", year: 2020, ytSearch: "Styles P Time Ghost Enthusiasm" },
+        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Joe Frog", ytId: "wwLtUmaxRLw" },
+        { artist: "Ka", title: "Peace Akhi", album: "Grief Pedigree", year: 2012, ytSearch: "Ka Peace Akhi", ytId: "OOTdy_vpFIA" },
+        { artist: "Styles P", title: "We're Gonna Make It", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P We Gonna Make It", ytId: "p6TrQzNTrRA" },
+        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts", ytId: "QvlF0dDs4Gw" },
+        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Snow Marcberg", ytId: "AZSPs8oPYUk" },
+        { artist: "Styles P", title: "Time", album: "Styles David Ghost Your Enthusiasm", year: 2020, ytSearch: "Styles P Time Ghost Enthusiasm", ytId: "jysK2gSa_3Y" },
         { artist: "Ka", title: "Solitary Refinement", album: "A Martyr's Reward", year: 2021, ytSearch: "Ka Solitary Refinement" },
-        { artist: "Errol Holden", title: "Evelyn & North", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Evelyn North" },
+        { artist: "Errol Holden", title: "Evelyn & North", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Evelyn North", ytId: "DgrC0njnx4I" },
         { artist: "Ka", title: "Wrapping Naked Wire", album: "Woeful Studies", year: 2022, ytSearch: "Ka Wrapping Naked Wire" },
-        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence" }
+        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence", ytId: "4py3XMbYdSE" }
       ]
     },
 
@@ -285,16 +285,16 @@ const ASH_DATA = {
       mood: "Minimaliste, sombre, texturé",
       icon: "◌",
       tracks: [
-        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Snow Marcberg" },
-        { artist: "Ka", title: "Mourn at Night", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Mourn at Night" },
-        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, ytSearch: "Roc Marciano 76 Reloaded" },
-        { artist: "Ka", title: "Seasons Change", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Seasons Change" },
+        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Snow Marcberg", ytId: "AZSPs8oPYUk" },
+        { artist: "Ka", title: "Mourn at Night", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Mourn at Night", ytId: "22qF6Drbihg" },
+        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, ytSearch: "Roc Marciano 76 Reloaded", ytId: "CVm5b9TFi_Y" },
+        { artist: "Ka", title: "Seasons Change", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Seasons Change", ytId: "mN5ORMHDy5Y" },
         { artist: "Roc Marciano", title: "Cashmere Ropes", album: "RR2: The Bitter Dose", year: 2018, ytSearch: "Roc Marciano Cashmere Ropes" },
-        { artist: "Errol Holden & Roc Marciano", title: "Rod Lavers with the Stussy Hoodie", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Rod Lavers Roc Marciano" },
-        { artist: "Ka", title: "I've Been Here Before", album: "Grief Pedigree", year: 2012, ytSearch: "Ka I've Been Here Before" },
-        { artist: "Roc Marciano", title: "Pistol", album: "Behold a Dark Horse", year: 2018, ytSearch: "Roc Marciano Pistol" },
-        { artist: "Ka", title: "The Package", album: "Woeful Studies", year: 2022, ytSearch: "Ka The Package Woeful Studies" },
-        { artist: "Roc Marciano", title: "Remy Sings", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Remy Sings" }
+        { artist: "Errol Holden & Roc Marciano", title: "Rod Lavers with the Stussy Hoodie", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Rod Lavers Roc Marciano", ytId: "jVQVAJ2PgiU" },
+        { artist: "Ka", title: "I've Been Here Before", album: "Grief Pedigree", year: 2012, ytSearch: "Ka I've Been Here Before", ytId: "h4pSIupzFdA" },
+        { artist: "Roc Marciano", title: "Pistol", album: "Behold a Dark Horse", year: 2018, ytSearch: "Roc Marciano Pistol", ytId: "3kj31RKZOLg" },
+        { artist: "Ka", title: "The Package", album: "Woeful Studies", year: 2022, ytSearch: "Ka The Package Woeful Studies", ytId: "ZgAt9pHiqUQ" },
+        { artist: "Roc Marciano", title: "Remy Sings", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Remy Sings", ytId: "gU23O0WP71g" }
       ]
     },
 
@@ -306,16 +306,16 @@ const ASH_DATA = {
       mood: "Flows stoïques, introspectifs",
       icon: "≡",
       tracks: [
-        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts Honor Killed the Samurai" },
+        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts Honor Killed the Samurai", ytId: "QvlF0dDs4Gw" },
         { artist: "Ka", title: "Solitary Refinement", album: "A Martyr's Reward", year: 2021, ytSearch: "Ka Solitary Refinement" },
-        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Joe Frog" },
-        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, ytSearch: "Roc Marciano 76 Reloaded" },
-        { artist: "Ka", title: "Decisions", album: "Languish Arts", year: 2022, ytSearch: "Ka Decisions Languish Arts" },
-        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence" },
-        { artist: "Ka", title: "Peace Akhi", album: "Grief Pedigree", year: 2012, ytSearch: "Ka Peace Akhi" },
-        { artist: "Roc Marciano", title: "Raw Deal", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Raw Deal" },
+        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Joe Frog", ytId: "wwLtUmaxRLw" },
+        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, ytSearch: "Roc Marciano 76 Reloaded", ytId: "CVm5b9TFi_Y" },
+        { artist: "Ka", title: "Decisions", album: "Languish Arts", year: 2022, ytSearch: "Ka Decisions Languish Arts", ytId: "0YaL0FPdceY" },
+        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence", ytId: "4py3XMbYdSE" },
+        { artist: "Ka", title: "Peace Akhi", album: "Grief Pedigree", year: 2012, ytSearch: "Ka Peace Akhi", ytId: "OOTdy_vpFIA" },
+        { artist: "Roc Marciano", title: "Raw Deal", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Raw Deal", ytId: "Glytqr0UdiY" },
         { artist: "Ka", title: "Wrapping Naked Wire", album: "Woeful Studies", year: 2022, ytSearch: "Ka Wrapping Naked Wire" },
-        { artist: "Styles P", title: "The Life", album: "The Life", year: 2016, ytSearch: "Styles P The Life" }
+        { artist: "Styles P", title: "The Life", album: "The Life", year: 2016, ytSearch: "Styles P The Life", ytId: "pfblnrUjysI" }
       ]
     },
 
@@ -327,16 +327,16 @@ const ASH_DATA = {
       mood: "Philosophique, introspectif, universel",
       icon: "Ψ",
       tracks: [
-        { artist: "Ka", title: "Searching (For Something)", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Searching Night's Gambit" },
-        { artist: "Styles P", title: "Ghost In The Building", album: "G-Host", year: 2018, ytSearch: "Styles P Ghost In The Building" },
-        { artist: "Ka", title: "Dust", album: "Descendants of Cain", year: 2020, ytSearch: "Ka Dust Descendants of Cain" },
+        { artist: "Ka", title: "Searching (For Something)", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Searching Night's Gambit", ytId: "d1hDpufNXd0" },
+        { artist: "Styles P", title: "Ghost In The Building", album: "G-Host", year: 2018, ytSearch: "Styles P Ghost In The Building", ytId: "ksXJPcGuQ3s" },
+        { artist: "Ka", title: "Dust", album: "Descendants of Cain", year: 2020, ytSearch: "Ka Dust Descendants of Cain", ytId: "RswTGeL9wd0" },
         { artist: "Styles P & Ka", title: "The KA-BA", album: "Woeful Studies", year: 2022, ytSearch: "Ka The KA-BA Styles P Woeful Studies" },
-        { artist: "Roc Marciano", title: "Marcielago", album: "Marcielago", year: 2019, ytSearch: "Roc Marciano Marcielago title track" },
-        { artist: "Ka", title: "The Package", album: "Woeful Studies", year: 2022, ytSearch: "Ka The Package Woeful Studies" },
-        { artist: "Styles P", title: "We're Gonna Make It", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P We Gonna Make It" },
-        { artist: "Errol Holden", title: "Mont Blanc Penmanship", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Mont Blanc Penmanship" },
-        { artist: "Ka", title: "Seasons Change", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Seasons Change" },
-        { artist: "Styles P", title: "Time", album: "Styles David Ghost Your Enthusiasm", year: 2020, ytSearch: "Styles P Time" }
+        { artist: "Roc Marciano", title: "Marcielago", album: "Marcielago", year: 2019, ytSearch: "Roc Marciano Marcielago title track", ytId: "yvI0pBnjeTs" },
+        { artist: "Ka", title: "The Package", album: "Woeful Studies", year: 2022, ytSearch: "Ka The Package Woeful Studies", ytId: "ZgAt9pHiqUQ" },
+        { artist: "Styles P", title: "We're Gonna Make It", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P We Gonna Make It", ytId: "p6TrQzNTrRA" },
+        { artist: "Errol Holden", title: "Mont Blanc Penmanship", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Mont Blanc Penmanship", ytId: "bzyPZvWtCN8" },
+        { artist: "Ka", title: "Seasons Change", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Seasons Change", ytId: "mN5ORMHDy5Y" },
+        { artist: "Styles P", title: "Time", album: "Styles David Ghost Your Enthusiasm", year: 2020, ytSearch: "Styles P Time", ytId: "jysK2gSa_3Y" }
       ]
     },
 
@@ -349,16 +349,16 @@ const ASH_DATA = {
       mood: "Discipline, structure, rigueur",
       icon: "⬛",
       tracks: [
-        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts" },
+        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts", ytId: "QvlF0dDs4Gw" },
         { artist: "Ka", title: "Solitary Refinement", album: "A Martyr's Reward", year: 2021, ytSearch: "Ka Solitary Refinement" },
-        { artist: "Styles P", title: "Warrior", album: "Float", year: 2013, ytSearch: "Styles P Warrior Float" },
-        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, ytSearch: "Roc Marciano 76 Reloaded" },
-        { artist: "Ka", title: "Decisions", album: "Languish Arts", year: 2022, ytSearch: "Ka Decisions Languish Arts" },
-        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence" },
-        { artist: "Errol Holden", title: "War Pig", album: "War Pig EP", year: 2025, ytSearch: "Errol Holden War Pig" },
-        { artist: "Ka", title: "Dust", album: "Descendants of Cain", year: 2020, ytSearch: "Ka Dust Descendants of Cain" },
-        { artist: "Styles P", title: "Time", album: "Styles David Ghost Your Enthusiasm", year: 2020, ytSearch: "Styles P Time" },
-        { artist: "Roc Marciano", title: "Raw Deal", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Raw Deal" }
+        { artist: "Styles P", title: "Warrior", album: "Float", year: 2013, ytSearch: "Styles P Warrior Float", ytId: "QX2371V5ta4" },
+        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, ytSearch: "Roc Marciano 76 Reloaded", ytId: "CVm5b9TFi_Y" },
+        { artist: "Ka", title: "Decisions", album: "Languish Arts", year: 2022, ytSearch: "Ka Decisions Languish Arts", ytId: "0YaL0FPdceY" },
+        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence", ytId: "4py3XMbYdSE" },
+        { artist: "Errol Holden", title: "War Pig", album: "War Pig EP", year: 2025, ytSearch: "Errol Holden War Pig", ytId: "KlQE59OrMYk" },
+        { artist: "Ka", title: "Dust", album: "Descendants of Cain", year: 2020, ytSearch: "Ka Dust Descendants of Cain", ytId: "RswTGeL9wd0" },
+        { artist: "Styles P", title: "Time", album: "Styles David Ghost Your Enthusiasm", year: 2020, ytSearch: "Styles P Time", ytId: "jysK2gSa_3Y" },
+        { artist: "Roc Marciano", title: "Raw Deal", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Raw Deal", ytId: "Glytqr0UdiY" }
       ]
     },
 
@@ -370,16 +370,16 @@ const ASH_DATA = {
       mood: "Intense, physique, sombre",
       icon: "◢",
       tracks: [
-        { artist: "Styles P", title: "Good Times (I Get High)", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P Good Times" },
-        { artist: "Errol Holden", title: "War Pig", album: "War Pig EP", year: 2025, ytSearch: "Errol Holden War Pig" },
-        { artist: "Styles P", title: "Blow Your Mind", album: "G-Host", year: 2018, ytSearch: "Styles P Blow Your Mind" },
-        { artist: "Roc Marciano", title: "Marci Enterprises", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Marci Enterprises" },
-        { artist: "Errol Holden", title: "ZOMBIE PROTOCOL", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden ZOMBIE PROTOCOL" },
-        { artist: "Styles P", title: "The Life", album: "The Life", year: 2016, ytSearch: "Styles P The Life" },
-        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Snow" },
-        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts" },
-        { artist: "Errol Holden", title: "Rudy Ray Moore", album: "Rudy Ray Moore", year: 2025, ytSearch: "Errol Holden Rudy Ray Moore Black Thought" },
-        { artist: "Styles P", title: "Phantom and the Ghost", album: "Phantom and the Ghost", year: 2014, ytSearch: "Styles P Phantom and the Ghost" }
+        { artist: "Styles P", title: "Good Times (I Get High)", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P Good Times", ytId: "4fJZbBcDsRQ" },
+        { artist: "Errol Holden", title: "War Pig", album: "War Pig EP", year: 2025, ytSearch: "Errol Holden War Pig", ytId: "KlQE59OrMYk" },
+        { artist: "Styles P", title: "Blow Your Mind", album: "G-Host", year: 2018, ytSearch: "Styles P Blow Your Mind", ytId: "R6imJp_CLac" },
+        { artist: "Roc Marciano", title: "Marci Enterprises", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Marci Enterprises", ytId: "dACa3SqzE_U" },
+        { artist: "Errol Holden", title: "ZOMBIE PROTOCOL", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden ZOMBIE PROTOCOL", ytId: "ejJlG-A0ya0" },
+        { artist: "Styles P", title: "The Life", album: "The Life", year: 2016, ytSearch: "Styles P The Life", ytId: "pfblnrUjysI" },
+        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Snow", ytId: "AZSPs8oPYUk" },
+        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts", ytId: "QvlF0dDs4Gw" },
+        { artist: "Errol Holden", title: "Rudy Ray Moore", album: "Rudy Ray Moore", year: 2025, ytSearch: "Errol Holden Rudy Ray Moore Black Thought", ytId: "VV75UdFEva4" },
+        { artist: "Styles P", title: "Phantom and the Ghost", album: "Phantom and the Ghost", year: 2014, ytSearch: "Styles P Phantom and the Ghost", ytId: "sIRQgPJQOrk" }
       ]
     },
 
@@ -392,15 +392,15 @@ const ASH_DATA = {
       icon: "◻",
       tracks: [
         { artist: "Ka", title: "Wrapping Naked Wire", album: "Woeful Studies", year: 2022, ytSearch: "Ka Wrapping Naked Wire" },
-        { artist: "Roc Marciano", title: "Remy Sings", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Remy Sings" },
-        { artist: "Ka", title: "Peace Akhi", album: "Grief Pedigree", year: 2012, ytSearch: "Ka Peace Akhi" },
-        { artist: "Errol Holden & Roc Marciano", title: "Perhaps in the Next", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Perhaps in the Next" },
-        { artist: "Ka", title: "Seasons Change", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Seasons Change" },
+        { artist: "Roc Marciano", title: "Remy Sings", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Remy Sings", ytId: "gU23O0WP71g" },
+        { artist: "Ka", title: "Peace Akhi", album: "Grief Pedigree", year: 2012, ytSearch: "Ka Peace Akhi", ytId: "OOTdy_vpFIA" },
+        { artist: "Errol Holden & Roc Marciano", title: "Perhaps in the Next", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Perhaps in the Next", ytId: "qmdF9S2J62c" },
+        { artist: "Ka", title: "Seasons Change", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Seasons Change", ytId: "mN5ORMHDy5Y" },
         { artist: "Roc Marciano", title: "Waltz of the Clueless", album: "Marci Beaucoup", year: 2013, ytSearch: "Roc Marciano Waltz of the Clueless" },
-        { artist: "Ka", title: "Decisions", album: "Languish Arts", year: 2022, ytSearch: "Ka Decisions Languish Arts" },
-        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence" },
-        { artist: "Errol Holden", title: "Evelyn & North", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Evelyn North" },
-        { artist: "Ka", title: "Searching (For Something)", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Searching Night's Gambit" }
+        { artist: "Ka", title: "Decisions", album: "Languish Arts", year: 2022, ytSearch: "Ka Decisions Languish Arts", ytId: "0YaL0FPdceY" },
+        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, ytSearch: "Styles P Presence", ytId: "4py3XMbYdSE" },
+        { artist: "Errol Holden", title: "Evelyn & North", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Evelyn North", ytId: "DgrC0njnx4I" },
+        { artist: "Ka", title: "Searching (For Something)", album: "The Night's Gambit", year: 2013, ytSearch: "Ka Searching Night's Gambit", ytId: "d1hDpufNXd0" }
       ]
     },
 
@@ -413,18 +413,18 @@ const ASH_DATA = {
       mood: "Minimalisme, réalisme, élégance sombre",
       icon: "◼",
       tracks: [
-        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Joe Frog" },
-        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Snow Marcberg" },
-        { artist: "Ka", title: "Mourn at Night", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Mourn at Night" },
-        { artist: "Styles P", title: "Good Times (I Get High)", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P Good Times" },
-        { artist: "Errol Holden & Roc Marciano", title: "visvim vandal", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Roc Marciano visvim vandal" },
-        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts" },
-        { artist: "Styles P", title: "Warrior", album: "Float", year: 2013, ytSearch: "Styles P Warrior Float" },
-        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, ytSearch: "Roc Marciano 76 Reloaded" },
+        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, ytSearch: "Errol Holden Joe Frog", ytId: "wwLtUmaxRLw" },
+        { artist: "Roc Marciano", title: "Snow", album: "Marcberg", year: 2010, ytSearch: "Roc Marciano Snow Marcberg", ytId: "AZSPs8oPYUk" },
+        { artist: "Ka", title: "Mourn at Night", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Mourn at Night", ytId: "22qF6Drbihg" },
+        { artist: "Styles P", title: "Good Times (I Get High)", album: "A Gangster and a Gentleman", year: 2002, ytSearch: "Styles P Good Times", ytId: "4fJZbBcDsRQ" },
+        { artist: "Errol Holden & Roc Marciano", title: "visvim vandal", album: "Mulberry Silk Road", year: 2025, ytSearch: "Errol Holden Roc Marciano visvim vandal", ytId: "Eir9WiqcJ9k" },
+        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, ytSearch: "Ka Cold Facts", ytId: "QvlF0dDs4Gw" },
+        { artist: "Styles P", title: "Warrior", album: "Float", year: 2013, ytSearch: "Styles P Warrior Float", ytId: "QX2371V5ta4" },
+        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, ytSearch: "Roc Marciano 76 Reloaded", ytId: "CVm5b9TFi_Y" },
         { artist: "Ka", title: "Wrapping Naked Wire", album: "Woeful Studies", year: 2022, ytSearch: "Ka Wrapping Naked Wire" },
         { artist: "Styles P & Ka", title: "The KA-BA", album: "Woeful Studies", year: 2022, ytSearch: "Ka KA-BA Styles P" },
-        { artist: "Errol Holden", title: "Mont Blanc Penmanship", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Mont Blanc Penmanship" },
-        { artist: "Roc Marciano", title: "Raw Deal", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Raw Deal" }
+        { artist: "Errol Holden", title: "Mont Blanc Penmanship", album: "Supreme Magnetic", year: 2025, ytSearch: "Errol Holden Mont Blanc Penmanship", ytId: "bzyPZvWtCN8" },
+        { artist: "Roc Marciano", title: "Raw Deal", album: "Rosebudd's Revenge", year: 2017, ytSearch: "Roc Marciano Raw Deal", ytId: "Glytqr0UdiY" }
       ]
     },
 
@@ -436,18 +436,18 @@ const ASH_DATA = {
       mood: "Progression chronologique et esthétique",
       icon: "⟶",
       tracks: [
-        { artist: "Roc Marciano", title: "Marci Enterprises", album: "Marcberg", year: 2010, era: "Les fondations (2010-2013)", ytSearch: "Roc Marciano Marci Enterprises Marcberg" },
-        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, era: "Les fondations (2010-2013)", ytSearch: "Roc Marciano 76 Reloaded" },
-        { artist: "Ka", title: "I've Been Here Before", album: "Grief Pedigree", year: 2012, era: "Les fondations (2010-2013)", ytSearch: "Ka I've Been Here Before" },
+        { artist: "Roc Marciano", title: "Marci Enterprises", album: "Marcberg", year: 2010, era: "Les fondations (2010-2013)", ytSearch: "Roc Marciano Marci Enterprises Marcberg", ytId: "dACa3SqzE_U" },
+        { artist: "Roc Marciano", title: "76", album: "Reloaded", year: 2012, era: "Les fondations (2010-2013)", ytSearch: "Roc Marciano 76 Reloaded", ytId: "CVm5b9TFi_Y" },
+        { artist: "Ka", title: "I've Been Here Before", album: "Grief Pedigree", year: 2012, era: "Les fondations (2010-2013)", ytSearch: "Ka I've Been Here Before", ytId: "h4pSIupzFdA" },
         { artist: "Ka", title: "Searching", album: "The Night's Gambit", year: 2013, era: "La consolidation (2015-2018)", ytSearch: "Ka Searching Night's Gambit" },
-        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, era: "La consolidation (2015-2018)", ytSearch: "Ka Cold Facts Honor Killed the Samurai" },
-        { artist: "Styles P", title: "The Life", album: "The Life", year: 2016, era: "La consolidation (2015-2018)", ytSearch: "Styles P The Life" },
-        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, era: "L'apogée (2019-2022)", ytSearch: "Styles P Presence album" },
+        { artist: "Ka", title: "Cold Facts", album: "Honor Killed the Samurai", year: 2016, era: "La consolidation (2015-2018)", ytSearch: "Ka Cold Facts Honor Killed the Samurai", ytId: "QvlF0dDs4Gw" },
+        { artist: "Styles P", title: "The Life", album: "The Life", year: 2016, era: "La consolidation (2015-2018)", ytSearch: "Styles P The Life", ytId: "pfblnrUjysI" },
+        { artist: "Styles P", title: "Presence", album: "Presence", year: 2019, era: "L'apogée (2019-2022)", ytSearch: "Styles P Presence album", ytId: "4py3XMbYdSE" },
         { artist: "Ka", title: "Solitary Refinement", album: "A Martyr's Reward", year: 2021, era: "L'apogée (2019-2022)", ytSearch: "Ka Solitary Refinement" },
         { artist: "Ka", title: "Wrapping Naked Wire", album: "Woeful Studies", year: 2022, era: "L'apogée (2019-2022)", ytSearch: "Ka Wrapping Naked Wire" },
-        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, era: "La nouvelle garde (2022–)", ytSearch: "Errol Holden Joe Frog" },
-        { artist: "Errol Holden & Roc Marciano", title: "visvim vandal", album: "Mulberry Silk Road", year: 2025, era: "La nouvelle garde (2022–)", ytSearch: "Errol Holden visvim vandal Roc Marciano" },
-        { artist: "Errol Holden", title: "Supreme Magnetic", album: "Supreme Magnetic", year: 2025, era: "La nouvelle garde (2022–)", ytSearch: "Errol Holden Supreme Magnetic" }
+        { artist: "Errol Holden", title: "Joe Frog", album: "Joe Frog", year: 2022, era: "La nouvelle garde (2022–)", ytSearch: "Errol Holden Joe Frog", ytId: "wwLtUmaxRLw" },
+        { artist: "Errol Holden & Roc Marciano", title: "visvim vandal", album: "Mulberry Silk Road", year: 2025, era: "La nouvelle garde (2022–)", ytSearch: "Errol Holden visvim vandal Roc Marciano", ytId: "Eir9WiqcJ9k" },
+        { artist: "Errol Holden", title: "Supreme Magnetic", album: "Supreme Magnetic", year: 2025, era: "La nouvelle garde (2022–)", ytSearch: "Errol Holden Supreme Magnetic", ytId: "Uo0jVKVBHtc" }
       ]
     }
 
