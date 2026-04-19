@@ -900,6 +900,28 @@ a:hover { color: var(--or2); }
   color: var(--acier);
 }
 
+
+.footer-ecosystem {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.footer-link {
+  color: var(--acier);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 2px;
+}
+.footer-link:hover {
+  opacity: 1;
+  color: var(--sang);
+  border-color: rgba(139,26,26,0.4);
+}
+
 /* ── MOBILE ──────────────────────────────────────────────── */
 @media (max-width: 680px) {
   .nav { padding: 0 1rem; }
